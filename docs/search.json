@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Willow-Tit-Project",
+    "title": "Willow Tit Project",
     "section": "",
     "text": "Welcome\nThis is the project site for modelling Willow Tit population distribution in the UK.\nThe aim of this project is to add to the knowledge of Willow Tit populations in the UK using openly available, citizen-science data.\nThe project consists of a short introduction about the species alongside efforts to model the available data to show encounter rate and relative abundance. The code is openly available from GitHub.",
     "crumbs": [
@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1.1 Background\nThe Willow Tit is in the singular position holding the dual-status of being the most recently “discovered” resident bird species in the UK, but also the one most rapidly declining. It was not recognised as a unique species until 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 (Cocker & Mabey, 2005). However, it is also the fastest declining resident bird in the UK (Burns, et al. 2020, p.14) its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [LEWIS 2009]. The Willow Tit has been on the Red List, the highest level of conservation concern, since 2002.\nMany efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of the Willow Tit to aid in conservation. It is my hope that this project can be a part of this wider effort.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -37,6 +37,26 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "intro.html#background",
+    "href": "intro.html#background",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1.1 Current status and research\nThroughout 2019-2021, a national survey was undertaken, organised by the RSPB with support from the Rare Breeding Birds Panel, Natural England, Natural Resources Wales, and the Welsh Ornithological Society. The Results from this national willow tit survey estimated the population at 5,700 breeding pairs with England holding 76% of the population:\n\n\n\n\n\n\n\n\nFigure 1.1: Percentage of Willow Tit population",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#why-ebird-data",
+    "href": "intro.html#why-ebird-data",
+    "title": "1  Introduction",
+    "section": "1.2 Why eBird data",
+    "text": "1.2 Why eBird data\nThe dataset for this project was taken from eBird, a citizen-science database containing observation data submitted by volunteers. These data record birding events in the form of checklists containing a list of species observed and the number of individuals for each species. Checklists also record the location, date, time, and distance for each event.\nMuch has already been written on the robust nature of eBird data for ecological analysis (Strimas-Mackey2020?), but the single most important aspect of using eBird data for this project is that it is freely available.\nPrevious research, including the national survey, also used citizen-science data collected by volunteers and submitted through recoding systems such as Birdtrack. However, these data are not publically available and are held behind a paywall by the BTO. Therefore, opportunities to make use of this data are limited. Since eBird is a freely available dataset, this makes it a unique and vaulable source of data on Willow Tits.\n\n1.2.1 A note on eBird data\neBird data are released as two tab-separated text files (.txt) called the eBird Basic Dataset (EBD) and the Sampling Event Data (SED). These two datasets are released monthly and contain all validated bird sightings in the eBird database at the time of release. Both of the datasets can be downloaded in full or for a specific species, region, and time period using the Custom Download.\nThe two datasets included in the download are:\neBird Basic Dataset (EBD): Observation data. In this dataset, each row represents a sighting of a single species including count and other species-level information:\n\n\n\n\n\nExample of the eBird observation data\n\n\nSampling Event Data (SED): Checklist data. Each row corresponds to a checklist (birding event) including date, time, location, and effort:\n\n\n\n\n\nExample of the eBird checklist data\n\n\nThree key aspects make eBird checklist data useful for anaysis. The first is the field protocol type where observers specify whether they were “traveling”, “stationary”, or if the event was “incidental” (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type “travelling”, the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field all species reported allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   }
 ]

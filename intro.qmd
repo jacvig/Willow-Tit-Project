@@ -1,9 +1,24 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+## Background
 
-See @knuth84 for additional discussion of literate programming.
+The Willow Tit is in the singular position holding the dual-status of being the most recently "discovered" resident bird species in the UK, but also the one most rapidly declining. It was not recognised as a unique species until 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 (Cocker & Mabey, 2005). However, it is also the fastest declining resident bird in the UK (Burns, et al. 2020, p.14) its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [LEWIS 2009]. The Willow Tit has been on the Red List, the highest level of conservation concern, since 2002.
 
-```{r}
-1 + 1
+Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of the Willow Tit to aid in conservation. It is my hope that this project can be a part of this wider effort.
+
+
+### Current status and research
+
+Throughout 2019-2021, a national survey was undertaken, organised by the RSPB with support from the Rare Breeding Birds Panel, Natural England, Natural Resources Wales, and the Welsh Ornithological Society. The [Results from this national willow tit survey](https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey) estimated the population at **5,700** breeding pairs with England holding 76% of the population:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.width=6, fig.height=4, label = fig-UKcountries, fig.cap="Percentage of Willow Tit population"}
+library(ggplot2)
+wt_pop <- data.frame("percentage" = factor(c('Scotland', 'Wales', 'England'), levels = c('Scotland', 'Wales', 'England')), "amount" = c(3, 21, 76))
+ggplot(wt_pop, aes(x="", y=amount, fill=percentage)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  geom_text(aes(label = paste0(amount, "%")), position = position_stack(vjust=0.5)) +
+  labs(x = NULL, y = NULL, fill = NULL) + 
+  theme_void() + 
+  scale_fill_brewer(palette = "Blues")
 ```

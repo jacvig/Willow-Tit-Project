@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Willow-Tit-Project"
+  title: "Willow Tit Project"
   chapters:
     - index.qmd
     - intro.qmd
