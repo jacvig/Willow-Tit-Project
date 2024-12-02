@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Willow-Tit-Project",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Welcome\nThis is the project site for modelling Willow Tit population distribution in the UK.\nThe aim of this project is to add to the knowledge of Willow Tit populations in the UK using openly available, citizen-science data.\nThe project consists of a short introduction about the species alongside efforts to model the available data to show encounter rate and relative abundance. The code is openly available from GitHub.",
     "crumbs": [
-      "Preface"
+      "Welcome"
     ]
   },
   {
