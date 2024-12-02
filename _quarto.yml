@@ -1,10 +1,9 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Willow-Tit-Project"
-  author: "Norah Jones"
-  date: "29/11/2024"
   chapters:
     - index.qmd
     - intro.qmd
