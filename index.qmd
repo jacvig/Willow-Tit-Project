@@ -1,6 +1,6 @@
-# Preface {.unnumbered}
+# Welcome {.unnumbered}
 
-Welcome to the project site Modelling Willow Tit population distribution in the UK.
+This is the project site for modelling Willow Tit population distribution in the UK.
 
 The aim of this project is to add to the knowledge of Willow Tit populations in the UK using openly available, citizen-science data.
 
