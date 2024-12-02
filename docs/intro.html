@@ -68,6 +68,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 </head>
@@ -138,6 +142,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#current-status-and-research" id="toc-current-status-and-research" class="nav-link" data-scroll-target="#current-status-and-research"><span class="header-section-number">1.1.1</span> Current status and research</a></li>
   </ul></li>
+  <li><a href="#why-ebird-data" id="toc-why-ebird-data" class="nav-link" data-scroll-target="#why-ebird-data"><span class="header-section-number">1.2</span> Why eBird data</a>
+  <ul class="collapse">
+  <li><a href="#a-note-on-ebird-data" id="toc-a-note-on-ebird-data" class="nav-link" data-scroll-target="#a-note-on-ebird-data"><span class="header-section-number">1.2.1</span> A note on eBird data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -184,6 +192,61 @@ Figure&nbsp;1.1: Percentage of Willow Tit population
 </div>
 </div>
 </div>
+<p>Raw data from the survey were not made publicly availalbe, but it was <a href="https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey">reported by the RSPB</a> that Willow Tit populations were highest in the following counties:</p>
+<ul>
+<li><p><strong>England:</strong> North Yorkshire, Durham, and Derbyshire</p></li>
+<li><p><strong>Wales:</strong> Carmarthenshire, Ceredigion, and Breconshire and Montgomeryshire (here shown as the county Powys)</p></li>
+<li><p><strong>Scotland:</strong> Dumfries &amp; Galloway</p></li>
+</ul>
+<div id="fig-UKcounties" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-UKcounties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/uk_counties.png" class="img-fluid figure-img"></p>
+<figcaption>Counties reporting the highest population of Willow Tit. NB: This figure highlights only the top counties in England, Wales, and Scotland. More detailed results across other counties have not been made public.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-UKcounties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="why-ebird-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-ebird-data"><span class="header-section-number">1.2</span> Why eBird data</h2>
+<p>The dataset for this project was taken from <a href="ebird.org">eBird</a>, a citizen-science database containing observation data submitted by volunteers. These data record birding events in the form of checklists containing a list of species observed and the number of individuals for each species. Checklists also record the location, date, time, and distance for each event.</p>
+<p>Much has already been written on the robust nature of eBird data for ecological analysis <span class="citation" data-cites="Strimas-Mackey2020">(<a href="references.html#ref-Strimas-Mackey2020" role="doc-biblioref"><strong>Strimas-Mackey2020?</strong></a>)</span>, but the single most important aspect of using eBird data for this project is that it is freely available.</p>
+<p>Previous research, including the national survey, also used citizen-science data collected by volunteers and submitted through recoding systems such as <a href="https://www.bto.org/our-science/projects/birdtrack">Birdtrack</a>. However, these data are not publically available and are held behind a paywall by the <a href="bto.org">BTO</a>. Therefore, opportunities to make use of this data are limited. Since eBird is a freely available dataset, this makes it a unique and vaulable source of data on Willow Tits.</p>
+<section id="a-note-on-ebird-data" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="a-note-on-ebird-data"><span class="header-section-number">1.2.1</span> A note on eBird data</h3>
+<p>eBird data are released as two tab-separated text files (.txt) called the <em>eBird Basic Dataset (EBD)</em> and the <em>Sampling Event Data (SED)</em>. These two datasets are released monthly and contain all validated bird sightings in the eBird database at the time of release. Both of the datasets can be downloaded in full or for a specific species, region, and time period using the <em>Custom Download</em>.</p>
+<p>The two datasets included in the download are:</p>
+<p><strong>eBird Basic Dataset (EBD):</strong> Observation data. In this dataset, each row represents a sighting of a single species including count and other species-level information:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X.checklist_id.global_unique_identifier.last_edited_date.taxonomic_order.category.taxon_concept_id.common_name.scientific_name.exotic_code.observation_count.breeding_code.breeding_category.behavior_code.age_sex.country.country_code.state.state_code.county.county_code.iba_code.bcr_code.usfws_code.atlas_block.locality.locality_id.locality_type.latitude.longitude.observation_date.time_observations_started.observer_id.sampling_event_identifier.protocol_type.protocol_code.project_code.duration_minutes.effort_distance_km.effort_area_ha.number_observers.all_species_reported.group_identifier.has_media.approved.reviewed.reason.trip_comments.species_comments"],"name":[1],"type":["fct"],"align":["left"]}],"data":[{"1":"1,S103985787,URN:CornellLabOfOrnithology:EBIRD:OBS1355590537,2022-03-01 15:56:22.882797,21652,species,avibase-F963401E,Willow Tit,Poecile montanus,NA,1,A ,C3,A ,NA,United Kingdom,GB,England,GB-ENG,Manchester,GB-ENG-MAN,NA,NA,NA,NA,Chorlton Ees LNR,L6081908,H,53.4333415,-2.2957134,2022-03-01,17:22:00,obsr1472448,S103985787,Traveling,P22,EBIRD,89,1.6,NA,1,TRUE,NA,FALSE,TRUE,FALSE,NA,NA,53.438912, -2.290444","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Example of the eBird observation data</p>
+</div>
+</div>
+<p><strong>Sampling Event Data (SED):</strong> Checklist data. Each row corresponds to a checklist (birding event) including date, time, location, and effort:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X.checklist_id.last_edited_date.country.country_code.state.state_code.county.county_code.iba_code.bcr_code.usfws_code.atlas_block.locality.locality_id.locality_type.latitude.longitude.observation_date.time_observations_started.observer_id.sampling_event_identifier.protocol_type.protocol_code.project_code.duration_minutes.effort_distance_km.effort_area_ha.number_observers.all_species_reported.group_identifier.trip_comments"],"name":[1],"type":["fct"],"align":["left"]}],"data":[{"1":"1,S103985787,2022-03-01 15:56:22.852919,United Kingdom,GB,England,GB-ENG,Manchester,GB-ENG-MAN,NA,NA,NA,NA,Chorlton Ees LNR,L6081908,H,53.4333415,-2.2957134,2022-03-01,17:22:00,obsr1472448,S103985787,Traveling,P22,EBIRD,89,1.6,NA,1,TRUE,NA,NA","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Example of the eBird checklist data</p>
+</div>
+</div>
+<p>Three key aspects make eBird checklist data useful for anaysis. The first is the field <em>protocol type</em> where observers specify whether they were “traveling”, “stationary”, or if the event was “incidental” (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type “travelling”, the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field <em>all species reported</em> allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.</p>
 
 
 </section>

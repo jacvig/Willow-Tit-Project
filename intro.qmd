@@ -21,3 +21,53 @@ ggplot(wt_pop, aes(x="", y=amount, fill=percentage)) +
   theme_void() + 
   scale_fill_brewer(palette = "Blues")
 ```
+
+Raw data from the survey were not made publicly availalbe, but it was [reported by the RSPB](https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey) that Willow Tit populations were highest in the following counties:
+
+-   **England:** North Yorkshire, Durham, and Derbyshire
+
+-   **Wales:** Carmarthenshire, Ceredigion, and Breconshire and Montgomeryshire (here shown as the county Powys)
+
+-   **Scotland:** Dumfries & Galloway
+
+::: {#fig-UKcounties}
+![Counties reporting the highest population of Willow Tit. NB: This figure highlights only the top counties in England, Wales, and Scotland. More detailed results across other counties have not been made public.](figures/uk_counties.png)
+:::
+
+
+## Why eBird data
+
+The dataset for this project was taken from [eBird](ebird.org), a citizen-science database containing observation data submitted by volunteers. These data record birding events in the form of checklists containing a list of species observed and the number of individuals for each species. Checklists also record the location, date, time, and distance for each event.
+
+Much has already been written on the robust nature of eBird data for ecological analysis [@Strimas-Mackey2020], but the single most important aspect of using eBird data for this project is that it is freely available.
+
+Previous research, including the national survey, also used citizen-science data collected by volunteers and submitted through recoding systems such as [Birdtrack](https://www.bto.org/our-science/projects/birdtrack). However, these data are not publically available and are held behind a paywall by the [BTO](bto.org). Therefore, opportunities to make use of this data are limited. Since eBird is a freely available dataset, this makes it a unique and vaulable source of data on Willow Tits.
+
+### A note on eBird data
+
+eBird data are released as two tab-separated text files (.txt) called the *eBird Basic Dataset (EBD)* and the *Sampling Event Data (SED)*. These two datasets are released monthly and contain all validated bird sightings in the eBird database at the time of release. Both of the datasets can be downloaded in full or for a specific species, region, and time period using the *Custom Download*.
+
+The two datasets included in the download are:
+
+**eBird Basic Dataset (EBD):** Observation data. In this dataset, each row represents a sighting of a single species including count and other species-level information:
+
+```{r echo=FALSE , warning=FALSE, message=FALSE,  fig.cap="Example of the eBird observation data"}
+
+library(rmarkdown)
+EBD <- read.csv("data/EBD.csv")
+data(EBD)
+rmarkdown::paged_table(head(EBD,1))
+```
+
+
+**Sampling Event Data (SED):** Checklist data. Each row corresponds to a checklist (birding event) including date, time, location, and effort:
+```{r echo=FALSE , warning=FALSE, message=FALSE,  fig.cap="Example of the eBird checklist data"}
+
+library(rmarkdown)
+SED <- read.csv("data/SED.csv")
+data(SED)
+rmarkdown::paged_table(head(SED,1))
+```
+
+
+Three key aspects make eBird checklist data useful for anaysis. The first is the field *protocol type* where observers specify whether they were "traveling", "stationary", or if the event was "incidental" (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type "travelling", the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field *all species reported* allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.
