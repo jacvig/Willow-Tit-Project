@@ -1,3 +1,9 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 # Introduction
 
 ## Background
@@ -30,10 +36,10 @@ Raw data from the survey were not made publicly availalbe, but it was [reported 
 
 -   **Scotland:** Dumfries & Galloway
 
+
 ::: {#fig-UKcounties}
 ![Counties reporting the highest population of Willow Tit. NB: This figure highlights only the top counties in England, Wales, and Scotland. More detailed results across other counties have not been made public.](figures/uk_counties.png)
 :::
-
 
 ## Why eBird data
 
@@ -54,20 +60,19 @@ The two datasets included in the download are:
 ```{r echo=FALSE , warning=FALSE, message=FALSE,  fig.cap="Example of the eBird observation data"}
 
 library(rmarkdown)
-EBD <- read.csv("data/EBD.csv")
+EBD <- read.csv("figures/EBD.csv")
 data(EBD)
 rmarkdown::paged_table(head(EBD,1))
 ```
 
-
 **Sampling Event Data (SED):** Checklist data. Each row corresponds to a checklist (birding event) including date, time, location, and effort:
+
 ```{r echo=FALSE , warning=FALSE, message=FALSE,  fig.cap="Example of the eBird checklist data"}
 
 library(rmarkdown)
-SED <- read.csv("data/SED.csv")
+SED <- read.csv("figures/SED.csv")
 data(SED)
 rmarkdown::paged_table(head(SED,1))
 ```
-
 
 Three key aspects make eBird checklist data useful for anaysis. The first is the field *protocol type* where observers specify whether they were "traveling", "stationary", or if the event was "incidental" (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type "travelling", the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field *all species reported* allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.
