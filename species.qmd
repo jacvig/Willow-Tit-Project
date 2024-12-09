@@ -1,0 +1,38 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Species Overview
+
+The Willow Tit (*Poecile montanus*) is a small passerine of the tit family (Paridae) around 12-13cm in length and weighs around 12g. Plumage is a plain grey-brown and off-white. They have a rather large head and nape with a black cap and bib.
+
+Willow Tits are easily confused with Marsh Tits *Poecile palustris,* but typically have a larger and messier bib as well as a pale panel on the closed wing. Willow Tits are best distinguished by their song and calls.
+
+## Habitat and breeding behaviour
+
+Willow Tits occupy damp habitats with dense scrub including scrubby margins around industrial sites and farmland, and wet woodland. An important element of these habitats is deadwood as Willow Tits excavate nest cavities. They are the UK's only tit species that does this. Tree species in which nest cavities are commonly found include silver birch, elder, and willow, with alder, hazel, hawthorn, wild cherry, and pine also chosen.
+
+Nesting begins in April. Both female and male excavate a new cavity each year with the site around 1.5 meters from the ground and typically no higher than 2 meters. Willow Tits have nested successfully in stumps with a diameter as small as 5cm, but 10-12cm is generally considered optimum ([Pinder & Carr, nd](https://issuu.com/yorkshirewildlifetrust/docs/25221_bftb_willow_tit_handbook_v6)). The entrance hole is small and round with a minimum diameter of 20mm. The cavity is 10-25 cm deep and lined with hair, fur, and some feathers on a base of wood chips, plant fibres, or other small particles such as plant buds (Ferguson-Lees, et al. 2011).
+
+::: {#fig-WTnest layout-ncol="2"}
+![Willow Tit nest cavity](figures/wt_nest01.jpg)
+
+![Willow Tit nest site. Installing dead logs has been shown to be a successful solution](figures/wt_nest02.jpg)
+
+Images Copryright Jacqueline Vigilanti
+:::
+
+
+Willow Tits occupy territories all year round. A study in 2020 (Broughton et.al) found that territory size averaged 13.7 hectares with a mean breeding density of 7.3 pairs per 2km squared. Prior to the breeding season, pairs become highly territorial. The vocalise to establish and defend their territories. This period, typically between late January and April is the easiest time to survey them.
+
+Broods consists of 6 -12 eggs which the female will brood for around 14 days ([Pinder & Carr, nd](https://issuu.com/yorkshirewildlifetrust/docs/25221_bftb_willow_tit_handbook_v6)). After they hatch, young will remain in the nest for approximately 18 days before fledging, and a further 20 days in their home range. Juveniles will range father to establish their own territories, but research is limited on their dispersal. Second broods can occur, but typically when the first brood failed before the egg laying stage.
+
+## Reasons for population decline
+
+Changes in habitat management, loss of habitat, competion, predation.
+
+## Further reading
+
+For more on Willow Tit conservation efforts and practices, see [The Willow Tit Conservation Handbook](https://naturebftb.co.uk/wp-content/uploads/2021/09/25221_BftB_Willow_Tit_Handbook_V6.pdf).

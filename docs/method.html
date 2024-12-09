@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Willow Tit Project</title>
+<title>3&nbsp; Methodology – Willow Tit Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./species.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./method.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -107,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -125,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./method.html" class="sidebar-item-text sidebar-link">
+  <a href="./method.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology</span></span></a>
   </div>
 </li>
@@ -145,7 +146,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#downloading-the-data" id="toc-downloading-the-data" class="nav-link active" data-scroll-target="#downloading-the-data"><span class="header-section-number">3.1</span> Downloading the data</a></li>
+  <li><a href="#filtering-and-processing" id="toc-filtering-and-processing" class="nav-link" data-scroll-target="#filtering-and-processing"><span class="header-section-number">3.2</span> Filtering and processing</a>
+  <ul class="collapse">
+  <li><a href="#coordinate-reference-system" id="toc-coordinate-reference-system" class="nav-link" data-scroll-target="#coordinate-reference-system"><span class="header-section-number">3.2.1</span> Coordinate reference system</a></li>
+  <li><a href="#zero-filling" id="toc-zero-filling" class="nav-link" data-scroll-target="#zero-filling"><span class="header-section-number">3.2.2</span> Zero-filling</a></li>
+  <li><a href="#combining-the-datasets" id="toc-combining-the-datasets" class="nav-link" data-scroll-target="#combining-the-datasets"><span class="header-section-number">3.2.3</span> Combining the datasets</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">3.2.4</span> Data transformation</a></li>
+  <li><a href="#reducing-the-variation-in-effort" id="toc-reducing-the-variation-in-effort" class="nav-link" data-scroll-target="#reducing-the-variation-in-effort"><span class="header-section-number">3.2.5</span> Reducing the variation in effort</a></li>
+  <li><a href="#test-train-split" id="toc-test-train-split" class="nav-link" data-scroll-target="#test-train-split"><span class="header-section-number">3.2.6</span> Test-train split</a></li>
+  <li><a href="#removed-variables" id="toc-removed-variables" class="nav-link" data-scroll-target="#removed-variables"><span class="header-section-number">3.2.7</span> Removed variables</a></li>
+  <li><a href="#overview-of-the-dataset" id="toc-overview-of-the-dataset" class="nav-link" data-scroll-target="#overview-of-the-dataset"><span class="header-section-number">3.2.8</span> Overview of the dataset</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -154,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Willow Tit Project</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology</span></h1>
 </div>
 
 
@@ -171,13 +183,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome</h1>
-<p>This is the project site for modelling Willow Tit population distribution in the UK.</p>
-<p>The aim of this project is to add to the knowledge of Willow Tit populations in the UK using openly available, citizen-science data.</p>
-<p>The project consists of a short introduction about the species alongside efforts to model the available data to show encounter rate and relative abundance. The code is openly available from <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>.</p>
+<p>The eBird data used for this project cover a ten-year period (2014-2024) during the pre-breeding season (February - April) when Willow Tits are establishing territories.</p>
+<p>See the code file <a href="https://github.com/jacvig/WillowTit2024">WillowTit_population_modeling</a>.</p>
+<p>NB. Originally, data were to cover the period 2015-2024. However, an issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.</p>
+<section id="downloading-the-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="downloading-the-data"><span class="header-section-number">3.1</span> Downloading the data</h2>
+<p>Data were downloaded on 16 July, 2024 from <a href="ebird.org">eBird</a> via the <a href="https://ebird.org/data/download">Data Access page</a>. A custom download was first performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. The download specified the option to include sampling event data in order to get both the observation (EBD) and checklist (SED) data (see <a href="pages/intro.qmd">A note on eBird data</a>)</p>
+<div id="fig-download" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ebirdDownload.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>eBird data custom download</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="filtering-and-processing" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="filtering-and-processing"><span class="header-section-number">3.2</span> Filtering and processing</h2>
+<p>Both the EBD and SED datasets were then imported for further filtering and processing using the R programming language following the guide <a href="https://ebird.github.io/ebird-best-practices/">Best Practices for Using eBird data</a> (Strimas, et. al.&nbsp;2023).</p>
+<p>Each of the datasets were filtered in the same way so that only observations/checklists between February and April were kept.</p>
+<p>The study-region (United Kingdom) contains checklists falling in the ocean off the costs. These were removed by creating a 1 km buffer around the study region.</p>
+<section id="coordinate-reference-system" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="coordinate-reference-system"><span class="header-section-number">3.2.1</span> Coordinate reference system</h3>
+<p>Checklist locations (latitude and longitude) were converted to points geometries using the EPSG.io coordinate system.</p>
+</section>
+<section id="zero-filling" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="zero-filling"><span class="header-section-number">3.2.2</span> Zero-filling</h3>
+<p>eBird data contains presence only data, but with complete checklists (checklists where all species present were recorded) absence can be inferred and a count of 0 can be given for those species. Having presence/absence data is important for analysis especially in the case of rare species or species of particular interest. This is because observers may seek these birds out thereby inflating the numbers.</p>
+</section>
+<section id="combining-the-datasets" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="combining-the-datasets"><span class="header-section-number">3.2.3</span> Combining the datasets</h3>
+<p>In the process of zero-filling, the observation and checklist data are combined into a single dataset making the data easier to work with.</p>
+</section>
+<section id="data-transformation" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">3.2.4</span> Data transformation</h3>
+<p>Several of the variables were transformed to make them more useful for analysis and modeling.</p>
+<ul>
+<li><p>Time was converted to a decimal value between 0 and 24 to give hours since midnight</p></li>
+<li><p>For stationary checklists, a value of 0 was given for distance</p></li>
+<li><p>A variable for speed was created (distance / time)</p></li>
+<li><p>Checklists with an observation count given as X (i.e.&nbsp;species present) was converted to NA so it would be stored as an integer.</p></li>
+<li><p>The date was split into the year and the day of the year</p></li>
+</ul>
+</section>
+<section id="reducing-the-variation-in-effort" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="reducing-the-variation-in-effort"><span class="header-section-number">3.2.5</span> Reducing the variation in effort</h3>
+<p>The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section <em>2.2 Challenges associated with eBird data</em> and section <em>2.7.1 Spacial precision</em> in <a href="https://ebird.github.io/ebird-best-practices/ebird.html">Strimas et.al.</a> for a discussion on these challenges). The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and with 10 or fewer observers.</p>
+</section>
+<section id="test-train-split" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="test-train-split"><span class="header-section-number">3.2.6</span> Test-train split</h3>
+<p>To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A type variable was created to indicate which checklist fell in the test or train category.</p>
+</section>
+<section id="removed-variables" class="level3" data-number="3.2.7">
+<h3 data-number="3.2.7" class="anchored" data-anchor-id="removed-variables"><span class="header-section-number">3.2.7</span> Removed variables</h3>
+<p>A number of redundant variables such as country and county codes were removed. Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.</p>
+</section>
+<section id="overview-of-the-dataset" class="level3" data-number="3.2.8">
+<h3 data-number="3.2.8" class="anchored" data-anchor-id="overview-of-the-dataset"><span class="header-section-number">3.2.8</span> Overview of the dataset</h3>
+<p>The final dataset contains 269,775 observations where each observation corresponds to a checklist with either a detection or non-detection of Willow Tit.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -603,10 +680,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./species.html" class="pagination-link" aria-label="Species Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Species Overview</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
