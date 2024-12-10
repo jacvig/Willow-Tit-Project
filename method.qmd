@@ -2,19 +2,20 @@
 output: html_document
 editor_options: 
   chunk_output_type: console
+bibliography: references.bib
 ---
 
 # Methodology
 
 The eBird data used for this project cover a ten-year period (2014-2024) during the pre-breeding season (February - April) when Willow Tits are establishing territories.
 
-See the code file [WillowTit_population_modeling](https://github.com/jacvig/WillowTit2024).
+Originally, data covered the period 2015-2024. However, an unknown issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.
 
-NB. Originally, data were to cover the period 2015-2024. However, an issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.
+The full R code used to download, filter, and process the dataset is available in the file [WillowTit_population_modeling](https://github.com/jacvig/WillowTit2024) on GitHub.
 
 ## Downloading the data
 
-Data were downloaded on 16 July, 2024 from [eBird](ebird.org) via the [Data Access page](https://ebird.org/data/download). A custom download was first performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. The download specified the option to include sampling event data in order to get both the observation (EBD) and checklist (SED) data (see [A note on eBird data](pages/intro.qmd))
+Data were downloaded on 16 July, 2024 from [eBird](ebird.org) via the [Data Access page](https://ebird.org/data/download). A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see [A note on eBird data](pages/intro.qmd)).
 
 ::: {#fig-download layout-ncol="1"}
 ![eBird data custom download](figures/ebirdDownload.png){width="75%"}
@@ -22,9 +23,9 @@ Data were downloaded on 16 July, 2024 from [eBird](ebird.org) via the [Data Acce
 
 ## Filtering and processing
 
-Both the EBD and SED datasets were then imported for further filtering and processing using the R programming language following the guide [Best Practices for Using eBird data](https://ebird.github.io/ebird-best-practices/) (Strimas, et. al. 2023).
+Both the EBD and SED datasets were then imported to RStudio for further filtering and processing using the R programming language following the guide [Best Practices for Using eBird data](https://ebird.github.io/ebird-best-practices/).
 
-Each of the datasets were filtered in the same way so that only observations/checklists between February and April were kept.
+Each of the datasets were filtered in the same way so that only observation and checklist data between February and April were kept.
 
 The study-region (United Kingdom) contains checklists falling in the ocean off the costs. These were removed by creating a 1 km buffer around the study region.
 
@@ -34,7 +35,9 @@ Checklist locations (latitude and longitude) were converted to points geometries
 
 ### Zero-filling
 
-eBird data contains presence only data, but with complete checklists (checklists where all species present were recorded) absence can be inferred and a count of 0 can be given for those species. Having presence/absence data is important for analysis especially in the case of rare species or species of particular interest. This is because observers may seek these birds out thereby inflating the numbers.
+Where a species is rare or of particular interest, a sampling bias can be introduced by observers seeking out the species and inflating the numbers. One way to mitigate this bias and ensure a more reliable estimate is to use presence-absence data [@StrimasMackey], [@GuilleraArroita2015].
+
+eBird data contains presence-only data. But where absence data is also required, data can be filtered to complete checklists only (where all species present were recorded). In this way absence can be inferred for those checklists that did not record the species. Zero-filling, or a count of 0, was performed on the data.
 
 ### Combining the datasets
 
@@ -44,27 +47,31 @@ In the process of zero-filling, the observation and checklist data are combined 
 
 Several of the variables were transformed to make them more useful for analysis and modeling.
 
--   Time was converted to a decimal value between 0 and 24 to give hours since midnight
+-   Time was converted to a decimal value between 0 and 24 to give hours since midnight.
 
--   For stationary checklists, a value of 0 was given for distance
+-   For stationary checklists, a value of 0 was given for distance.
 
--   A variable for speed was created (distance / time)
+-   A variable for speed was created (distance / time).
 
 -   Checklists with an observation count given as X (i.e. species present) was converted to NA so it would be stored as an integer.
 
--   The date was split into the year and the day of the year
+-   The date was split into the year and the day of the year.
 
 ### Reducing the variation in effort
 
-The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section *2.2 Challenges associated with eBird data* and section *2.7.1 Spacial precision* in [Strimas et.al.](https://ebird.github.io/ebird-best-practices/ebird.html) for a discussion on these challenges). The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and with 10 or fewer observers.
+The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section *2.2 Challenges associated with eBird data* and section *2.7.1 Spacial precision* in [@StrimasMackey] for a discussion on these challenges).
+
+The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and those with 10 or fewer observers.
 
 ### Test-train split
 
-To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A type variable was created to indicate which checklist fell in the test or train category.
+To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A *type* variable was created to indicate which checklist fell in the test or train category.
 
 ### Removed variables
 
-A number of redundant variables such as country and county codes were removed. Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.
+A number of redundant variables such as country and county codes were removed.
+
+Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.
 
 ### Overview of the dataset
 

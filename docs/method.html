@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -184,11 +204,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The eBird data used for this project cover a ten-year period (2014-2024) during the pre-breeding season (February - April) when Willow Tits are establishing territories.</p>
-<p>See the code file <a href="https://github.com/jacvig/WillowTit2024">WillowTit_population_modeling</a>.</p>
-<p>NB. Originally, data were to cover the period 2015-2024. However, an issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.</p>
+<p>Originally, data covered the period 2015-2024. However, an unknown issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.</p>
+<p>The full R code used to download, filter, and process the dataset is available in the file <a href="https://github.com/jacvig/WillowTit2024">WillowTit_population_modeling</a> on GitHub.</p>
 <section id="downloading-the-data" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="downloading-the-data"><span class="header-section-number">3.1</span> Downloading the data</h2>
-<p>Data were downloaded on 16 July, 2024 from <a href="ebird.org">eBird</a> via the <a href="https://ebird.org/data/download">Data Access page</a>. A custom download was first performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. The download specified the option to include sampling event data in order to get both the observation (EBD) and checklist (SED) data (see <a href="pages/intro.qmd">A note on eBird data</a>)</p>
+<p>Data were downloaded on 16 July, 2024 from <a href="ebird.org">eBird</a> via the <a href="https://ebird.org/data/download">Data Access page</a>. A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see <a href="pages/intro.qmd">A note on eBird data</a>).</p>
 <div id="fig-download" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-download-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -211,8 +231,8 @@ Figure&nbsp;3.1
 </section>
 <section id="filtering-and-processing" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="filtering-and-processing"><span class="header-section-number">3.2</span> Filtering and processing</h2>
-<p>Both the EBD and SED datasets were then imported for further filtering and processing using the R programming language following the guide <a href="https://ebird.github.io/ebird-best-practices/">Best Practices for Using eBird data</a> (Strimas, et. al.&nbsp;2023).</p>
-<p>Each of the datasets were filtered in the same way so that only observations/checklists between February and April were kept.</p>
+<p>Both the EBD and SED datasets were then imported to RStudio for further filtering and processing using the R programming language following the guide <a href="https://ebird.github.io/ebird-best-practices/">Best Practices for Using eBird data</a>.</p>
+<p>Each of the datasets were filtered in the same way so that only observation and checklist data between February and April were kept.</p>
 <p>The study-region (United Kingdom) contains checklists falling in the ocean off the costs. These were removed by creating a 1 km buffer around the study region.</p>
 <section id="coordinate-reference-system" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="coordinate-reference-system"><span class="header-section-number">3.2.1</span> Coordinate reference system</h3>
@@ -220,7 +240,8 @@ Figure&nbsp;3.1
 </section>
 <section id="zero-filling" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="zero-filling"><span class="header-section-number">3.2.2</span> Zero-filling</h3>
-<p>eBird data contains presence only data, but with complete checklists (checklists where all species present were recorded) absence can be inferred and a count of 0 can be given for those species. Having presence/absence data is important for analysis especially in the case of rare species or species of particular interest. This is because observers may seek these birds out thereby inflating the numbers.</p>
+<p>Where a species is rare or of particular interest, a sampling bias can be introduced by observers seeking out the species and inflating the numbers. One way to mitigate this bias and ensure a more reliable estimate is to use presence-absence data <span class="citation" data-cites="StrimasMackey">(<a href="references.html#ref-StrimasMackey" role="doc-biblioref">Strimas-Mackey 2023</a>)</span>, <span class="citation" data-cites="GuilleraArroita2015">(<a href="references.html#ref-GuilleraArroita2015" role="doc-biblioref">Guillera-Arroita et al. 2015</a>)</span>.</p>
+<p>eBird data contains presence-only data. But where absence data is also required, data can be filtered to complete checklists only (where all species present were recorded). In this way absence can be inferred for those checklists that did not record the species. Zero-filling, or a count of 0, was performed on the data.</p>
 </section>
 <section id="combining-the-datasets" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="combining-the-datasets"><span class="header-section-number">3.2.3</span> Combining the datasets</h3>
@@ -230,30 +251,40 @@ Figure&nbsp;3.1
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">3.2.4</span> Data transformation</h3>
 <p>Several of the variables were transformed to make them more useful for analysis and modeling.</p>
 <ul>
-<li><p>Time was converted to a decimal value between 0 and 24 to give hours since midnight</p></li>
-<li><p>For stationary checklists, a value of 0 was given for distance</p></li>
-<li><p>A variable for speed was created (distance / time)</p></li>
+<li><p>Time was converted to a decimal value between 0 and 24 to give hours since midnight.</p></li>
+<li><p>For stationary checklists, a value of 0 was given for distance.</p></li>
+<li><p>A variable for speed was created (distance / time).</p></li>
 <li><p>Checklists with an observation count given as X (i.e.&nbsp;species present) was converted to NA so it would be stored as an integer.</p></li>
-<li><p>The date was split into the year and the day of the year</p></li>
+<li><p>The date was split into the year and the day of the year.</p></li>
 </ul>
 </section>
 <section id="reducing-the-variation-in-effort" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="reducing-the-variation-in-effort"><span class="header-section-number">3.2.5</span> Reducing the variation in effort</h3>
-<p>The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section <em>2.2 Challenges associated with eBird data</em> and section <em>2.7.1 Spacial precision</em> in <a href="https://ebird.github.io/ebird-best-practices/ebird.html">Strimas et.al.</a> for a discussion on these challenges). The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and with 10 or fewer observers.</p>
+<p>The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section <em>2.2 Challenges associated with eBird data</em> and section <em>2.7.1 Spacial precision</em> in <span class="citation" data-cites="StrimasMackey">(<a href="references.html#ref-StrimasMackey" role="doc-biblioref">Strimas-Mackey 2023</a>)</span> for a discussion on these challenges).</p>
+<p>The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and those with 10 or fewer observers.</p>
 </section>
 <section id="test-train-split" class="level3" data-number="3.2.6">
 <h3 data-number="3.2.6" class="anchored" data-anchor-id="test-train-split"><span class="header-section-number">3.2.6</span> Test-train split</h3>
-<p>To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A type variable was created to indicate which checklist fell in the test or train category.</p>
+<p>To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A <em>type</em> variable was created to indicate which checklist fell in the test or train category.</p>
 </section>
 <section id="removed-variables" class="level3" data-number="3.2.7">
 <h3 data-number="3.2.7" class="anchored" data-anchor-id="removed-variables"><span class="header-section-number">3.2.7</span> Removed variables</h3>
-<p>A number of redundant variables such as country and county codes were removed. Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.</p>
+<p>A number of redundant variables such as country and county codes were removed.</p>
+<p>Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.</p>
 </section>
 <section id="overview-of-the-dataset" class="level3" data-number="3.2.8">
 <h3 data-number="3.2.8" class="anchored" data-anchor-id="overview-of-the-dataset"><span class="header-section-number">3.2.8</span> Overview of the dataset</h3>
 <p>The final dataset contains 269,775 observations where each observation corresponds to a checklist with either a detection or non-detection of Willow Tit.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-GuilleraArroita2015" class="csl-entry" role="listitem">
+Guillera-Arroita, Gurutzeta, José J. Lahoz-Monfort, Jane Elith, Ascelin Gordon, Heini Kujala, Pia E. Lentini, Michael A. McCarthy, Reid Tingley, and Brendan A. Wintle. 2015. <span>“Is My Species Distribution Model Fit for Purpose? Matching Data and Models to Applications.”</span> <em>Global Ecology and Biogeography</em> 24 (3): 276–92. https://doi.org/<a href="https://doi.org/10.1111/geb.12268">https://doi.org/10.1111/geb.12268</a>.
+</div>
+<div id="ref-StrimasMackey" class="csl-entry" role="listitem">
+Strimas-Mackey, Hochachka, M. 2023. <span>“Best Practices for Using eBird Data.”</span> Ithica, New York: Cornell Lab of Ornithology. <a href="https://doi.org/10.5281/zenodo.3620739">https://doi.org/10.5281/zenodo.3620739</a>.
+</div>
+</div>
 </section>
 </section>
 
