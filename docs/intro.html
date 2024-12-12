@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -185,8 +205,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="background" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="background"><span class="header-section-number">1.1</span> Background</h2>
-<p>Willow Tits are in a singular position of holding the dual-status as being the most recently “discovered” resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 (Cocker &amp; Mabey, 2005). However, it is also the fastest declining resident bird in the UK (Burns, et al.&nbsp;2020, p.14) its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [LEWIS 2009]. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.</p>
-<p>Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tita and aid in their conservation. It is my hope that this project can be a part of this wider effort.</p>
+<p>Willow Tits are in a singular position of holding the dual-status as being the most recently “discovered” resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 <span class="citation" data-cites="Cocker2005">(<a href="references.html#ref-Cocker2005" role="doc-biblioref">Cocker and Mabey 2005</a>)</span>. However, it is also the fastest declining resident bird in the UK <span class="citation" data-cites="Burns2020">(<a href="references.html#ref-Burns2020" role="doc-biblioref">Burns and Wotton 2020</a>)</span> its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s <span class="citation" data-cites="Lewis2009">(<a href="references.html#ref-Lewis2009" role="doc-biblioref">Lewis and Smith 2009</a>)</span>. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.</p>
+<p>Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tit and aid in their conservation. It is my hope that this project can be a part of this wider effort.</p>
 <section id="current-status-and-research" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="current-status-and-research"><span class="header-section-number">1.1.1</span> Current status and research</h3>
 <p>Throughout 2019-2021, a national survey was undertaken, organised by the RSPB with support from the Rare Breeding Birds Panel, Natural England, Natural Resources Wales, and the Welsh Ornithological Society. The <a href="https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey">Results from this national willow tit survey</a> estimated the population at <strong>5,700</strong> breeding pairs with England holding 76% of the population:</p>
@@ -204,7 +224,7 @@ Figure&nbsp;1.1: Percentage of Willow Tit population across the UK
 </div>
 </div>
 </div>
-<p>Raw data from the survey were not made publicly availalbe, but it was <a href="https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey">reported by the RSPB</a> that Willow Tit populations were highest in the following counties:</p>
+<p>Raw data from the survey were not made publicly available, but it was <a href="https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey">reported by the RSPB</a> that Willow Tit populations were highest in the following counties:</p>
 <ul>
 <li><p><strong>England:</strong> North Yorkshire, Durham, and Derbyshire</p></li>
 <li><p><strong>Wales:</strong> Carmarthenshire, Ceredigion, and Breconshire and Montgomeryshire (here shown as the county Powys)</p></li>
@@ -261,6 +281,17 @@ Figure&nbsp;1.2
 <p>Three key aspects make eBird checklist data useful for anaysis. The first is the field <em>protocol type</em> where observers specify whether they were “traveling”, “stationary”, or if the event was “incidental” (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type “travelling”, the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field <em>all species reported</em> allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Burns2020" class="csl-entry" role="listitem">
+Burns, Eaton, F., and S. Wotton. 2020. <span>“The State of the UK’s Birds 2020.”</span> Sandy, Bedfordshire: The RSPB, BTO, DAERA, JNCC&lt; NatureScot, NE; NRW. <a href="https://www.bto.org/our-science/publications/state-uks-birds/state-uks-birds-2020">https://www.bto.org/our-science/publications/state-uks-birds/state-uks-birds-2020</a>.
+</div>
+<div id="ref-Cocker2005" class="csl-entry" role="listitem">
+Cocker, M., and R. Mabey. 2005. <em>Birds Britannica</em>. London: Chatto &amp; Windus.
+</div>
+<div id="ref-Lewis2009" class="csl-entry" role="listitem">
+Lewis, Amar, A. J. G., and K. Smith. 2009. <span>“Factors Influencing Patch Occupancy and Within‐patch Habitat Use in an Apparently Stable Population of Willow Tits&nbsp;Poecile Montanus Kleinschmidti&nbsp;in Britain.”</span> <em>Bird Study</em> 56 (3): 326–37. <a href="https://doi.org/10.1080/00063650902795190">https://doi.org/10.1080/00063650902795190</a>.
+</div>
+</div>
 </section>
 </section>
 

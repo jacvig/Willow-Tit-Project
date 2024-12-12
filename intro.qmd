@@ -8,9 +8,9 @@ editor_options:
 
 ## Background
 
-Willow Tits are in a singular position of holding the dual-status as being the most recently "discovered" resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 (Cocker & Mabey, 2005). However, it is also the fastest declining resident bird in the UK (Burns, et al. 2020, p.14) its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s \[LEWIS 2009\]. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.
+Willow Tits are in a singular position of holding the dual-status as being the most recently "discovered" resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 [@Cocker2005]. However, it is also the fastest declining resident bird in the UK [@Burns2020] its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [@Lewis2009]. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.
 
-Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tita and aid in their conservation. It is my hope that this project can be a part of this wider effort.
+Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tit and aid in their conservation. It is my hope that this project can be a part of this wider effort.
 
 ### Current status and research
 
@@ -28,14 +28,13 @@ ggplot(wt_pop, aes(x="", y=amount, fill=percentage)) +
   scale_fill_brewer(palette = "Blues")
 ```
 
-Raw data from the survey were not made publicly availalbe, but it was [reported by the RSPB](https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey) that Willow Tit populations were highest in the following counties:
+Raw data from the survey were not made publicly available, but it was [reported by the RSPB](https://community.rspb.org.uk/ourwork/b/science/posts/results-from-the-national-willow-tit-survey) that Willow Tit populations were highest in the following counties:
 
 -   **England:** North Yorkshire, Durham, and Derbyshire
 
 -   **Wales:** Carmarthenshire, Ceredigion, and Breconshire and Montgomeryshire (here shown as the county Powys)
 
 -   **Scotland:** Dumfries & Galloway
-
 
 ::: {#fig-UKcounties}
 ![Counties reporting the highest population of Willow Tit. NB: This figure highlights only the top counties in England, Wales, and Scotland. More detailed results across other counties have not been made public.](figures/uk_counties.png)

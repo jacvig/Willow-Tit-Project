@@ -17,14 +17,14 @@ Willow Tits are easily confused with Marsh Tits *Poecile palustris,* but typical
 
 Willow Tits in the UK occupy damp habitats with dense scrub including scrubby margins around industrial sites and farmland, and wet woodland. An important element of these habitats is deadwood as Willow Tits excavate nest cavities. They are the UK's only tit species that does this. Tree species in which nest cavities are commonly found include silver birch, elder, and willow, with alder, hazel, hawthorn, wild cherry, and pine also chosen.
 
-Nesting begins in April. Both female and male excavate a new cavity each year with the site around 1.5 meters from the ground and typically no higher than 2 meters. Willow Tits have nested successfully in stumps with a diameter as small as 5cm, but 10-12cm is generally considered optimum [@WillowTit2021]. The entrance hole is small and round with a minimum diameter of 20mm. The cavity is 10-25 cm deep and lined with hair, fur, and some feathers on a base of wood chips, plant fibres, or other small particles such as plant buds (Ferguson-Lees, et al. 2011).
+Nesting begins in April. Both female and male excavate a new cavity each year with the site around 1.5 meters from the ground and typically no higher than 2 meters. Willow Tits have nested successfully in stumps with a diameter as small as 5cm, but 10-12cm is generally considered optimum [@WillowTit2021]. The entrance hole is small and round with a minimum diameter of 20mm. The cavity is 10-25 cm deep and lined with hair, fur, and some feathers on a base of wood chips, plant fibres, or other small particles such as plant buds [@FergusonLees2011].
 
 ::: {#fig-WTnest layout-ncol="2"}
 ![Willow Tit nest cavity](figures/wt_nest01.jpg)
 
 ![Willow Tit nest site. Installing dead logs has been shown to be a successful solution](figures/wt_nest02.jpg)
 
-Images Copryright Jacqueline Vigilanti
+Images Copryright: Jacqueline Vigilanti, 2024
 :::
 
 Willow Tits occupy territories all year round. A study in 2020 [@Broughton2020] found that territory size averaged 13.7 hectares with a mean breeding density of 7.3 pairs per 2km squared. Prior to the breeding season, pairs become highly territorial. The vocalise to establish and defend their territories. This period, typically between late January and April is the easiest time to survey them.
