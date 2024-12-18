@@ -47,31 +47,31 @@ In the process of zero-filling, the observation and checklist data are combined 
 
 Several of the variables were transformed to make them more useful for analysis and modeling.
 
--   Time was converted to a decimal value between 0 and 24 to give hours since midnight.
+-   *Time* was converted to a decimal value between 0 and 24 to give hours since midnight.
 
--   For stationary checklists, a value of 0 was given for distance.
+-   For stationary checklists, a value of 0 was given for *distance*.
 
--   A variable for speed was created (distance / time).
+-   A variable for *speed* was created (distance / time).
 
 -   Checklists with an observation count given as X (i.e. species present) was converted to NA so it would be stored as an integer.
 
--   The date was split into the year and the day of the year.
+-   The date was split into the *year* and the *day of the year*.
 
 ### Reducing the variation in effort
 
-The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability (see section *2.2 Challenges associated with eBird data* and section *2.7.1 Spacial precision* in [@StrimasMackey] for a discussion on these challenges).
+The variation in effort between checklists can make inferences challenging since it is associated with variation in detectability. See sections *2.2 Challenges associated with eBird data,* and *2.7.1 Spacial precision* in [@StrimasMackey] for a discussion on these challenges.
 
-The effort variation of checklists was reduced based on the recommendations of Strimas et.al. Checklists were restricted to less than 6 hours duration, 10 km in distance, speeds below 100 km/hr, and those with 10 or fewer observers.
+The effort variation of checklists was reduced following the recommendations of Strimas et.al. Checklists were restricted to: less than or equal to 6 hours duration; 10 km in distance; speeds under 100 kilometers per hour; and 10 or fewer observers.
 
 ### Test-train split
 
-To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. A *type* variable was created to indicate which checklist fell in the test or train category.
+To test the predictive performance of the model, a testing dataset was created. The data were randomly split into 80% for training and 20% for testing. The variable *type* was created to indicate which checklist fell in the test or train category.
 
 ### Removed variables
 
 A number of redundant variables such as country and county codes were removed.
 
-Only variables needed for modeling were kept. These included: checklist_id, observer_id, type, observation_count, species_observed, state_code, locality_id, latitude, longitude, protocol_type, all_species_reported, observation_date, year, day_of_year, hours_of_day, effort_hours, effort_distance_km, effort_speed_kmph, number_observers.
+Only variables needed for modeling were kept. These included: checklist_id; observer_id; type; observation_count; species_observed; state_code; locality_id; latitude; longitude; protocol_type; all_species_reported; observation_date; year; day_of_year; hours_of_day; effort_hours; effort_distance_km; effort_speed_kmph; number_observers.
 
 ### Overview of the dataset
 
