@@ -9,6 +9,7 @@ book:
     - intro.qmd
     - species.qmd
     - method.qmd
+    - explore.qmd
     - references.qmd
 
 bibliography: references.bib
