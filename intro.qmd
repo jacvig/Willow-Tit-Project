@@ -40,9 +40,11 @@ Raw data from the survey were not made publicly available, but it was [reported 
 ![Counties reporting the highest population of Willow Tit. NB: This figure highlights only the top counties in England, Wales, and Scotland. More detailed results across other counties have not been made public.](figures/uk_counties.png)
 :::
 
-## Why eBird data
+## The Data
 
 The dataset for this project was taken from [eBird](ebird.org), a citizen-science database containing observation data submitted by volunteers. These data record birding events in the form of checklists containing a list of species observed and the number of individuals for each species. Checklists also record the location, date, time, and distance for each event.
+
+### Why eBird data
 
 Much has already been written on the robust nature of eBird data for ecological analysis [Strimas-Mackey2020](https://ebird.github.io/ebird-best-practices/), but the single most important aspect of using eBird data for this project is that it is freely available.
 
@@ -75,3 +77,9 @@ rmarkdown::paged_table(head(SED,1))
 ```
 
 Three key aspects make eBird checklist data useful for anaysis. The first is the field *protocol type* where observers specify whether they were "traveling", "stationary", or if the event was "incidental" (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type "travelling", the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field *all species reported* allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.
+
+### BTO Breeding Bird Survey data
+
+As of December 3, 2024, the BTO released a publically available dataset from their Breeding Bird Survey [@british_trust_for_ornithology_2024_14161736]. This data cover a twenty-year period (1994-2023) and contain the data collected during the [Breeding Bird Survey (BBS)](https://www.bto.org/our-science/projects/breeding-bird-survey) of the United Kingdom. BBS data are collected twice a year during the breeding season (March - August) for all species that breed in the UK.
+
+The release of these data is exciting as, until now, access has been limited thereby restricting analysis to only authorised individuals. It will be important to include these data in the overall project, not least as a benchmark corroborating the validity of eBird data even if collected through a different methodology. They have, therefore, been included as a separate section set alongside the original study.

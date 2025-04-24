@@ -162,6 +162,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./enviro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">enviro.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -180,9 +186,11 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#current-status-and-research" id="toc-current-status-and-research" class="nav-link" data-scroll-target="#current-status-and-research"><span class="header-section-number">1.1.1</span> Current status and research</a></li>
   </ul></li>
-  <li><a href="#why-ebird-data" id="toc-why-ebird-data" class="nav-link" data-scroll-target="#why-ebird-data"><span class="header-section-number">1.2</span> Why eBird data</a>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">1.2</span> The Data</a>
   <ul class="collapse">
-  <li><a href="#a-note-on-ebird-data" id="toc-a-note-on-ebird-data" class="nav-link" data-scroll-target="#a-note-on-ebird-data"><span class="header-section-number">1.2.1</span> A note on eBird data</a></li>
+  <li><a href="#why-ebird-data" id="toc-why-ebird-data" class="nav-link" data-scroll-target="#why-ebird-data"><span class="header-section-number">1.2.1</span> Why eBird data</a></li>
+  <li><a href="#a-note-on-ebird-data" id="toc-a-note-on-ebird-data" class="nav-link" data-scroll-target="#a-note-on-ebird-data"><span class="header-section-number">1.2.2</span> A note on eBird data</a></li>
+  <li><a href="#bto-breeding-bird-survey-data" id="toc-bto-breeding-bird-survey-data" class="nav-link" data-scroll-target="#bto-breeding-bird-survey-data"><span class="header-section-number">1.2.3</span> BTO Breeding Bird Survey data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -253,13 +261,16 @@ Figure&nbsp;1.2
 </div>
 </section>
 </section>
-<section id="why-ebird-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="why-ebird-data"><span class="header-section-number">1.2</span> Why eBird data</h2>
+<section id="the-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-data"><span class="header-section-number">1.2</span> The Data</h2>
 <p>The dataset for this project was taken from <a href="ebird.org">eBird</a>, a citizen-science database containing observation data submitted by volunteers. These data record birding events in the form of checklists containing a list of species observed and the number of individuals for each species. Checklists also record the location, date, time, and distance for each event.</p>
+<section id="why-ebird-data" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="why-ebird-data"><span class="header-section-number">1.2.1</span> Why eBird data</h3>
 <p>Much has already been written on the robust nature of eBird data for ecological analysis <a href="https://ebird.github.io/ebird-best-practices/">Strimas-Mackey2020</a>, but the single most important aspect of using eBird data for this project is that it is freely available.</p>
 <p>Previous research, including the national survey, also used citizen-science data collected by volunteers and submitted through recording systems such as <a href="https://www.bto.org/our-science/projects/birdtrack">Birdtrack</a>. However, these data are held by the <a href="bto.org">BTO</a> and are not publically available. Therefore, opportunities to make use of this data are limited. Since eBird is a freely available dataset, this makes it a unique and vaulable source of data on Willow Tits.</p>
-<section id="a-note-on-ebird-data" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="a-note-on-ebird-data"><span class="header-section-number">1.2.1</span> A note on eBird data</h3>
+</section>
+<section id="a-note-on-ebird-data" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="a-note-on-ebird-data"><span class="header-section-number">1.2.2</span> A note on eBird data</h3>
 <p>eBird data are released as two tab-separated text files (.txt) called the <em>eBird Basic Dataset (EBD)</em> and the <em>Sampling Event Data (SED)</em>. These two datasets are released monthly and contain all validated bird sightings in the eBird database at the time of release. Both of the datasets can be downloaded in full or for a specific species, region, and time period using the <em>Custom Download</em>.</p>
 <p>The two datasets included in the download are:</p>
 <p><strong>eBird Basic Dataset (EBD):</strong> Observation data. In this dataset, each row represents a sighting of a single species including count and other species-level information:</p>
@@ -285,6 +296,11 @@ Figure&nbsp;1.2
 </div>
 </div>
 <p>Three key aspects make eBird checklist data useful for anaysis. The first is the field <em>protocol type</em> where observers specify whether they were “traveling”, “stationary”, or if the event was “incidental” (birding was not their primary activity). This enables a distinction between checklists that cover an area, checklists recorded from a single point, and where birding was the main purpose and those where the observer noticed a specific bird. Second, for checklists with the protocol type “travelling”, the distance and speed are recorded so it is possible to gain a picture of the area covered. And third, the field <em>all species reported</em> allows observers to indicate if all species were recorded, that is, if the checklist is a complete record of species during a birding event. Complete checklists enable the inference of zero-counts for species not reported.</p>
+</section>
+<section id="bto-breeding-bird-survey-data" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="bto-breeding-bird-survey-data"><span class="header-section-number">1.2.3</span> BTO Breeding Bird Survey data</h3>
+<p>As of December 3, 2024, the BTO released a publically available dataset from their Breeding Bird Survey <span class="citation" data-cites="british_trust_for_ornithology_2024_14161736">(<a href="references.html#ref-british_trust_for_ornithology_2024_14161736" role="doc-biblioref">Ornithology 2024</a>)</span>. This data cover a twenty-year period (1994-2023) and contain the data collected during the <a href="https://www.bto.org/our-science/projects/breeding-bird-survey">Breeding Bird Survey (BBS)</a> of the United Kingdom. BBS data are collected twice a year during the breeding season (March - August) for all species that breed in the UK.</p>
+<p>The release of these data is exciting as, until now, access has been limited thereby restricting analysis to only authorised individuals. It will be important to include these data in the overall project, not least as a benchmark corroborating the validity of eBird data even if collected through a different methodology. They have, therefore, been included as a separate section set alongside the original study.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -296,6 +312,9 @@ Cocker, M., and R. Mabey. 2005. <em>Birds Britannica</em>. London: Chatto &amp; 
 </div>
 <div id="ref-Lewis2009" class="csl-entry" role="listitem">
 Lewis, Amar, A. J. G., and K. Smith. 2009. <span>“Factors Influencing Patch Occupancy and Within‐patch Habitat Use in an Apparently Stable Population of Willow Tits&nbsp;Poecile Montanus Kleinschmidti&nbsp;in Britain.”</span> <em>Bird Study</em> 56 (3): 326–37. <a href="https://doi.org/10.1080/00063650902795190">https://doi.org/10.1080/00063650902795190</a>.
+</div>
+<div id="ref-british_trust_for_ornithology_2024_14161736" class="csl-entry" role="listitem">
+Ornithology, British Trust for. 2024. <span>“The Breeding Bird Survey of the United Kingdom.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.14161736">https://doi.org/10.5281/zenodo.14161736</a>.
 </div>
 </div>
 </section>

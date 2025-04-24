@@ -10,6 +10,7 @@ book:
     - species.qmd
     - method.qmd
     - explore.qmd
+    - enviro.qmd
     - references.qmd
 
 bibliography: references.bib
