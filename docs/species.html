@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -211,13 +211,7 @@ div.csl-indent {
 <h2 data-number="2.1" class="anchored" data-anchor-id="identification"><span class="header-section-number">2.1</span> Identification</h2>
 <p>The UK Willow Tit (<em>Poecile montanus kleinschmidti</em>) is a small passerine of the tit family (Paridae) around 12-13cm in length and weighs around 12g. Plumage is a plain grey-brown and off-white. They have a rather large head and nape with a black cap and bib.</p>
 <div class="[#fig-WillowTit]">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/WillowTit.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption>Willow Tit</figcaption>
-</figure>
-</div>
-<p>Image Copyright: J.Vigilanti, 2025</p>
+<p><img src="figures/WillowTit.png" class="img-fluid" style="width:75.0%" alt="Willow Tit"> Image Copyright: J.Vigilanti, 2025</p>
 </div>
 <p>Willow Tits are easily confused with Marsh Tits <em>Poecile palustris,</em> but typically have a larger and messier bib as well as a pale panel on the closed wing. Willow Tits are best distinguished by their song and calls.</p>
 </section>
@@ -369,8 +363,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -481,7 +473,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
