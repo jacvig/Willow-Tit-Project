@@ -11,7 +11,7 @@ The eBird data used for this project cover a ten-year period (2014-2024) during 
 
 Originally, data covered the period 2015-2024. However, an unknown issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.
 
-The full R code used to download, filter, and process the dataset is available in the file [WillowTit_population_modeling](https://github.com/jacvig/WillowTit2024) on GitHub.
+The full R code used to download, filter, and process the dataset is available in the file *WillowTit_population_modeling* on [GitHub](https://github.com/jacvig/WillowTit2024).
 
 ## Downloading the data
 
