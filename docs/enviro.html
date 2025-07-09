@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Environmentl Variables – Willow Tit Project</title>
+<title>5&nbsp; Environmental Variables – Willow Tit Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -37,10 +57,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./enviro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmentl Variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./enviro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmental Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./enviro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmentl Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmental Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -153,15 +173,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#landcover" id="toc-landcover" class="nav-link active" data-scroll-target="#landcover"><span class="header-section-number">5.1</span> Landcover</a></li>
+  <li><a href="#elevation" id="toc-elevation" class="nav-link" data-scroll-target="#elevation"><span class="header-section-number">5.2</span> Elevation</a></li>
+  <li><a href="#prediction-grid" id="toc-prediction-grid" class="nav-link" data-scroll-target="#prediction-grid"><span class="header-section-number">5.3</span> Prediction grid</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmentl Variables</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Environmental Variables</span></h1>
 </div>
 
 
@@ -178,9 +206,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Species distribution models</p>
+<p>This project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled.</p>
+<p>Landcover and elevation were chosen as suitable variables with guidance and recommendations as outlined by <span class="citation" data-cites="StrimasMackey">Strimas-Mackey (<a href="references.html#ref-StrimasMackey" role="doc-biblioref">2023</a>)</span> followed. A prediction grid was then created, and lastly the data were mapped. For the full R code, see the file <em>EnvironmentalVariables.R</em> on <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>.</p>
+<section id="landcover" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="landcover"><span class="header-section-number">5.1</span> Landcover</h2>
+<p>The <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-mcd12q1-061">MODIS MCD12Q1 v061</a> product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used.</p>
+<p>First, the MODIS files were downloaded and processed into a raster file, see the file <em>Processing_MODIS_files.R</em> on <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>.</p>
+<p>Then, the landcover class was extracted for each checklist location by creating a 3km area around the checklist location, which is considered sufficient to account for spatial precision, and calculating two metrics: a measure of composition and a measure of configuration. These are reliable metrics for calculating environmental covariates in distribution models.</p>
+</section>
+<section id="elevation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="elevation"><span class="header-section-number">5.2</span> Elevation</h2>
+<p>Elevation data was downloaded from the <a href="https://www.earthenv.org/topography">EarthEnv</a> website at 1km resolution. Then, both the mean and standard deviation of the elevation for the 3km checklist neighborhood was calculated.</p>
+<p>The landcover and elevation variables were then joined to the checklkist data.</p>
+</section>
+<section id="prediction-grid" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="prediction-grid"><span class="header-section-number">5.3</span> Prediction grid</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-StrimasMackey" class="csl-entry" role="listitem">
+Strimas-Mackey, Hochachka, M. 2023. <span>“Best Practices for Using eBird Data.”</span> Ithica, New York: Cornell Lab of Ornithology. <a href="https://doi.org/10.5281/zenodo.3620739">https://doi.org/10.5281/zenodo.3620739</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -265,8 +313,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -377,7 +423,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

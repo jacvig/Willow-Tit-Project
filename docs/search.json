@@ -104,7 +104,7 @@
     "href": "method.html",
     "title": "3  Methodology",
     "section": "",
-    "text": "3.1 Downloading the data\nData were downloaded on 16 July, 2024 from eBird via the Data Access page. A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see A note on eBird data).",
+    "text": "3.1 Downloading the data\nThe eBird data used for this project cover a ten-year period (2014-2024) during the pre-breeding season (February - April) when Willow Tits are establishing territories.\nOriginally, data covered the period 2015-2024. However, an unknown issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.\nThe full R code used to download, filter, and process the dataset is available in the file WillowTit_population_modeling on GitHub.\nData were downloaded on 16 July, 2024 from eBird via the Data Access page. A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see A note on eBird data).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Methodology</span>"
     ]
@@ -162,11 +162,11 @@
   {
     "objectID": "enviro.html",
     "href": "enviro.html",
-    "title": "5  Environmentl Variables",
+    "title": "5  Environmental Variables",
     "section": "",
-    "text": "Species distribution models",
+    "text": "5.1 Landcover\nThis project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled.\nLandcover and elevation were chosen as suitable variables with guidance and recommendations as outlined by Strimas-Mackey (2023) followed. A prediction grid was then created, and lastly the data were mapped. For the full R code, see the file EnvironmentalVariables.R on GitHub.\nThe MODIS MCD12Q1 v061 product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used.\nFirst, the MODIS files were downloaded and processed into a raster file, see the file Processing_MODIS_files.R on GitHub.\nThen, the landcover class was extracted for each checklist location by creating a 3km area around the checklist location, which is considered sufficient to account for spatial precision, and calculating two metrics: a measure of composition and a measure of configuration. These are reliable metrics for calculating environmental covariates in distribution models.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Environmentl Variables</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Environmental Variables</span>"
     ]
   },
   {
@@ -187,6 +187,36 @@
     "text": "Willow Tit\n\n\nImage Copyright: J.Vigilanti, 2025",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Species Overview</span>"
+    ]
+  },
+  {
+    "objectID": "enviro.html#landcover",
+    "href": "enviro.html#landcover",
+    "title": "5  Environmental Variables",
+    "section": "",
+    "text": "Strimas-Mackey, Hochachka, M. 2023. “Best Practices for Using eBird Data.” Ithica, New York: Cornell Lab of Ornithology. https://doi.org/10.5281/zenodo.3620739.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Environmental Variables</span>"
+    ]
+  },
+  {
+    "objectID": "enviro.html#elevation",
+    "href": "enviro.html#elevation",
+    "title": "5  Environmental Variables",
+    "section": "5.2 Elevation",
+    "text": "5.2 Elevation\nElevation data was downloaded from the EarthEnv website at 1km resolution. Then, both the mean and standard deviation of the elevation for the 3km checklist neighborhood was calculated.\nThe landcover and elevation variables were then joined to the checklkist data.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Environmental Variables</span>"
+    ]
+  },
+  {
+    "objectID": "enviro.html#prediction-grid",
+    "href": "enviro.html#prediction-grid",
+    "title": "5  Environmental Variables",
+    "section": "5.3 Prediction grid",
+    "text": "5.3 Prediction grid\n\n\n\n\nStrimas-Mackey, Hochachka, M. 2023. “Best Practices for Using eBird Data.” Ithica, New York: Cornell Lab of Ornithology. https://doi.org/10.5281/zenodo.3620739.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Environmental Variables</span>"
     ]
   }
 ]
