@@ -206,21 +206,139 @@ div.csl-indent {
 </header>
 
 
-<p>This project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled.</p>
-<p>Landcover and elevation were chosen as suitable variables with guidance and recommendations as outlined by <span class="citation" data-cites="StrimasMackey">Strimas-Mackey (<a href="references.html#ref-StrimasMackey" role="doc-biblioref">2023</a>)</span> followed. A prediction grid was then created, and lastly the data were mapped. For the full R code, see the file <em>EnvironmentalVariables.R</em> on <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>.</p>
+<p>This project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled. Such an approach would potentially help identify sites that could be managed for Willow Tits.</p>
+<p>However, it is worth noting that my knowledge of, and experience with, species distribution models is very limited. Therefore, I have relied heavily on <span class="citation" data-cites="StrimasMackey">Strimas-Mackey (<a href="references.html#ref-StrimasMackey" role="doc-biblioref">2023</a>)</span> for guidance and recommendations in applying these methods to the data. As well, the following sections have been undertaken more as a means of teaching myself species distribution modeling using a case study, and so the results may not reflect a robust methodology for Willow Tit data analysis.</p>
+<p>The full R code is available from <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>. First, MODIS files were downloaded and processed into a raster file (see <em>Processing_MODIS_files.R</em> on ), then the variables were matched to the checklist locations and a prediction grid was created (<em>EnvironmentalVariables.R)</em>.</p>
 <section id="landcover" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="landcover"><span class="header-section-number">5.1</span> Landcover</h2>
-<p>The <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-mcd12q1-061">MODIS MCD12Q1 v061</a> product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used.</p>
-<p>First, the MODIS files were downloaded and processed into a raster file, see the file <em>Processing_MODIS_files.R</em> on <a href="https://github.com/jacvig/WillowTit2024">GitHub</a>.</p>
-<p>Then, the landcover class was extracted for each checklist location by creating a 3km area around the checklist location, which is considered sufficient to account for spatial precision, and calculating two metrics: a measure of composition and a measure of configuration. These are reliable metrics for calculating environmental covariates in distribution models.</p>
+<p>The <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-mcd12q1-061">MODIS MCD12Q1 v061</a> product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used. It provides fifteen classes:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">class</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">label</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Water bodies</td>
+<td style="text-align: left;">water</td>
+<td style="text-align: left;">At least 60% of area is covered by permanent water bodies.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Evergreen Needleleaf Forests</td>
+<td style="text-align: left;">evergreen_needleleaf</td>
+<td style="text-align: left;">Dominated by evergreen conifer trees (canopy &gt;2m). Tree cover &gt;60%.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Evergreen Broadleaf Forests</td>
+<td style="text-align: left;">evergreen_broadleaf</td>
+<td style="text-align: left;">Dominated by evergreen broadleaf and palmate trees (canopy &gt;2m). Tree cover &gt;60%.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Deciduous Needleleaf Forests</td>
+<td style="text-align: left;">deciduous_needleleaf</td>
+<td style="text-align: left;">Dominated by deciduous needleleaf (e.g.&nbsp;larch) trees (canopy &gt;2m). Tree cover &gt;60%.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Deciduous Broadleaf Forests</td>
+<td style="text-align: left;">deciduous_broadleaf</td>
+<td style="text-align: left;">Dominated by deciduous broadleaf trees (canopy &gt;2m). Tree cover &gt;60%.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Mixed Forests</td>
+<td style="text-align: left;">mixed_forest</td>
+<td style="text-align: left;">Dominated by neither deciduous nor evergreen (40-60% of each) tree type (canopy &gt;2m). Tree cover &gt;60%.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Closed Shrublands</td>
+<td style="text-align: left;">closed_shrubland</td>
+<td style="text-align: left;">Dominated by woody perennials (1-2m height) &gt;60% cover.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Open Shrublands</td>
+<td style="text-align: left;">open_shrubland</td>
+<td style="text-align: left;">Dominated by woody perennials (1-2m height) 10-60% cover.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Woody Savannas</td>
+<td style="text-align: left;">woody_savanna</td>
+<td style="text-align: left;">Tree cover 30-60% (canopy &gt;2m).</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Savannas</td>
+<td style="text-align: left;">savanna</td>
+<td style="text-align: left;">Tree cover 10-30% (canopy &gt;2m).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Grasslands</td>
+<td style="text-align: left;">grassland</td>
+<td style="text-align: left;">Dominated by herbaceous annuals (&lt;2m).</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Croplands</td>
+<td style="text-align: left;">cropland</td>
+<td style="text-align: left;">At least 60% of area is cultivated cropland.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">Urban and Built-up Lands</td>
+<td style="text-align: left;">urban</td>
+<td style="text-align: left;">At least 30% impervious surface area including building materials, asphalt, and vehicles.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Non-Vegetated Lands</td>
+<td style="text-align: left;">nonvegetated</td>
+<td style="text-align: left;">At least 60% of area is non-vegetated barren (sand, rock, soil) or permanent snow and ice with less than 10% vegetation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">255</td>
+<td style="text-align: left;">Unclassified</td>
+<td style="text-align: left;">unclassified</td>
+<td style="text-align: left;">Has not received a map label because of missing inputs.</td>
+</tr>
+</tbody>
+</table>
+<p>University of Maryland classes</p>
+</div>
+</div>
+<p>The landcover class was extracted for each checklist location by creating a 3km area around the checklist location. This is considered sufficient to account for spatial precision. Then, two metrics were calculated: a measure of composition (percentage of cover type) and a measure of configuration (edge density). These are reliable metrics for calculating environmental covariates in distribution models.</p>
 </section>
 <section id="elevation" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="elevation"><span class="header-section-number">5.2</span> Elevation</h2>
 <p>Elevation data was downloaded from the <a href="https://www.earthenv.org/topography">EarthEnv</a> website at 1km resolution. Then, both the mean and standard deviation of the elevation for the 3km checklist neighborhood was calculated.</p>
-<p>The landcover and elevation variables were then joined to the checklkist data.</p>
+<p>The landcover and elevation variables were joined to the checklist data.</p>
 </section>
 <section id="prediction-grid" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="prediction-grid"><span class="header-section-number">5.3</span> Prediction grid</h2>
+<p>A grid of habitat variables was created from which to make predictions.</p>
+<p>The prediction grid was saved as a .csv file, but the raster (or .tiff) file can be used to map the variables. This was useful as a way to understand the classification scheme and how it relates to to UK habitats.</p>
+<p>For example, the variable “savanna” defined as “tree cover 30-60% (canopy &gt;2m), was more relatable when mapped:</p>
+<p><img src="figures/env_variable_savanna.png" class="img-fluid"></p>
+<p>Example of mean elevation:<img src="figures/mean_elevation.png" class="img-fluid"></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

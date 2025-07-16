@@ -6,22 +6,38 @@ editor_options:
 
 # Environmental Variables
 
-This project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled.
+This project wanted to look at associations between Willow Tit occurrence and environmental variables to see if any relationships were identified that could then be used as predictors of distribution in areas that were not sampled. Such an approach would potentially help identify sites that could be managed for Willow Tits.
 
-Landcover and elevation were chosen as suitable variables with guidance and recommendations as outlined by @StrimasMackey followed. A prediction grid was then created, and lastly the data were mapped. For the full R code, see the file *EnvironmentalVariables.R* on [GitHub](https://github.com/jacvig/WillowTit2024).
+However, it is worth noting that my knowledge of, and experience with, species distribution models is very limited. Therefore, I have relied heavily on @StrimasMackey for guidance and recommendations in applying these methods to the data. As well, the following sections have been undertaken more as a means of teaching myself species distribution modeling using a case study, and so the results may not reflect a robust methodology for Willow Tit data analysis.
+
+The full R code is available from [GitHub](https://github.com/jacvig/WillowTit2024). First, MODIS files were downloaded and processed into a raster file (see *Processing_MODIS_files.R* on ), then the variables were matched to the checklist locations and a prediction grid was created (*EnvironmentalVariables.R)*.
 
 ## Landcover
 
-The [MODIS MCD12Q1 v061](https://www.earthdata.nasa.gov/data/catalog/lpcloud-mcd12q1-061) product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used.
+The [MODIS MCD12Q1 v061](https://www.earthdata.nasa.gov/data/catalog/lpcloud-mcd12q1-061) product was the chosen dataset for landcover variables as it provides global coverage at 500m spacial resolution from 2001-present. The University of Maryland classification system was used. It provides fifteen classes:
 
-First, the MODIS files were downloaded and processed into a raster file, see the file *Processing_MODIS_files.R* on [GitHub](https://github.com/jacvig/WillowTit2024).
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.width=6, fig.height=4, label = umdclasses, fig.cap="University of Maryland classes"}
+library(readr)
+lc_classes <- read_csv("data/mcd12q1_umd_classes.csv")
+knitr::kable(lc_classes)
+```
 
-Then, the landcover class was extracted for each checklist location by creating a 3km area around the checklist location, which is considered sufficient to account for spatial precision, and calculating two metrics: a measure of composition and a measure of configuration. These are reliable metrics for calculating environmental covariates in distribution models.
+The landcover class was extracted for each checklist location by creating a 3km area around the checklist location. This is considered sufficient to account for spatial precision. Then, two metrics were calculated: a measure of composition (percentage of cover type) and a measure of configuration (edge density). These are reliable metrics for calculating environmental covariates in distribution models.
 
 ## Elevation
 
 Elevation data was downloaded from the [EarthEnv](https://www.earthenv.org/topography) website at 1km resolution. Then, both the mean and standard deviation of the elevation for the 3km checklist neighborhood was calculated.
 
-The landcover and elevation variables were then joined to the checklkist data.
+The landcover and elevation variables were joined to the checklist data.
 
 ## Prediction grid
+
+A grid of habitat variables was created from which to make predictions.
+
+The prediction grid was saved as a .csv file, but the raster (or .tiff) file can be used to map the variables. This was useful as a way to understand the classification scheme and how it relates to to UK habitats.
+
+For example, the variable "savanna" defined as "tree cover 30-60% (canopy \>2m), was more relatable when mapped:
+
+![](figures/env_variable_savanna.png)
+
+Example of mean elevation:![](figures/mean_elevation.png)
