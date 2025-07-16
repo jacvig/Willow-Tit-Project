@@ -11,6 +11,7 @@ book:
     - method.qmd
     - explore.qmd
     - enviro.qmd
+    - encounter.qmd
     - references.qmd
 
 bibliography: references.bib
