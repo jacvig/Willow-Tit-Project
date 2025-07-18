@@ -1,0 +1,7 @@
+name,value,description
+mse,0.007,mean squared error
+sensitivity,0.498,
+specificity,0.989,
+pr_auc,0.152,precision recall AUC
+mcc,0.367,mean squared contingency coefficient
+f1,0.36,F score
