@@ -29,9 +29,9 @@ High count totals for each year were then plotted to look at trends:
 
 ![](figures/WT_Highcounts_per_year_bargraph.png)
 
-It appears that Willow Tit observations were historically more likely between mid May and June, with more recent years having higher rates of observations between April and mid May. I am not sure what this indicates. The BBS does not record young birds and so, though young are more likely later, these would not be part of the count. One possibility is that nesting has started earlier and so fewer birds are observed. However, there is not enough evidence for this assumption. young are more likely to be observed later and counts may include these.
+It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.
 
-The above graph also shows that the population has declined, but a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation:
+The affect of the Covid pandemic on recording during 2020 can be seen, but numbers of Willow Tits show a steady decline. However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:
 
 ![](figures/BBS_Sites_per_year.png) ![](figures/BBSurveys_per_year.png)
 
@@ -39,55 +39,8 @@ That is, the more sites surveyed, the more likely a Willow Tit will be detected.
 
 Next, I plotted the sites (by latitude and longitude) onto a map of the UK to see where observations occurred including numbers:
 
-![](figures/BTO_BSS_WTcount.png)
+::: {#fig-Obsmaps layout-ncol="2"}
+![BTO data](figures/BTO_BSS_WTcount2.png)
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, label = fig-wtobservations}
-
-library(dplyr)
-library(rnaturalearth)
-library(sf)
-library(ggplot2)
-
-checklists<- read.csv("data/checklists-zf_wiltit_jul_gb.csv") 
-# Exploratory analysis and visualisation
-# load gis data
-ne_land <- read_sf("data/gis-data.gpkg", "ne_land") |> 
-  st_geometry()
-ne_country_lines <- read_sf("data/gis-data.gpkg", "ne_country_lines") |> 
-  st_geometry()
-ne_state_lines <- read_sf("data/gis-data.gpkg", "ne_state_lines") |> 
-  st_geometry()
-study_region <- read_sf("data/gis-data.gpkg", "ne_states") |> 
-  st_geometry()
-
-# prepare ebird data for mapping
-checklists_sf <- checklists |> 
-  # convert to spatial points
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4326) |> 
-  select(species_observed)
-
-# map
-par(mar = c(0.25, 0.25, 4, 0.25))
-# set up plot area
-plot(st_geometry(checklists_sf), 
-     main = "Willow Tit eBird Observations\nFeb-Apr 2014-2023",
-     col = NA, border = NA)
-# contextual gis data
-plot(ne_land, col = "#cfcfcf", border = "#888888", lwd = 0.5, add = TRUE)
-plot(study_region, col = "#e6e6e6", border = NA, add = TRUE)
-plot(ne_state_lines, col = "#ffffff", lwd = 0.75, add = TRUE)
-plot(ne_country_lines, col = "#ffffff", lwd = 1.5, add = TRUE)
-# ebird observations
-# observed
-
-plot(filter(checklists_sf, species_observed),
-     pch = 19, cex = 0.3, col = alpha("#4daf4a", 1),
-     add = TRUE)
-# legend
-legend("bottomright", bty = "n",
-       col = c("#4daf4a"),
-       legend = c("Willow Tit sighting"),
-       pch = 19)
-box()
-
-```
+![eBird data](figures/eBird_WT_sightings2.png)
+:::
