@@ -11,8 +11,8 @@ bibliography: references.bib
 
 The UK Willow Tit (*Poecile montanus kleinschmidti*) is a small passerine of the tit family (Paridae) around 12-13cm in length and weighs around 12g. Plumage is a plain grey-brown and off-white. They have a rather large head and nape with a black cap and bib.
 
-:::[#fig-WillowTit]
-![Willow Tit](figures/WillowTit.png){width=75%}
+::: [#fig-WillowTit]
+![Willow Tit](figures/WillowTit.png){width="75%"}
 
 Image Copyright: J.Vigilanti, 2025
 :::

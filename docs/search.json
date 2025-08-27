@@ -278,5 +278,45 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Encounter Rate</span>"
     ]
+  },
+  {
+    "objectID": "btodata.html",
+    "href": "btodata.html",
+    "title": "7  BTO Willow Tit data",
+    "section": "",
+    "text": "7.1 A quick note on BBS methodology\nIn December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (https://zenodo.org/records/14161736) containing data collected between 1994 - 2023.\nAs an addendum to this project, I analysed the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.\nI chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.\nData collected as part of the BBS follows a strict protocol. A 1x1km grid square is surveyed. Two visits are performed during the breeding season: an early visit, between April and mid May, and a late visit, between mid May and June. For each visit, observers record the number of individuals along two 1km transects. Each transect is subdivided into 200m-long sections and observations are recorded at four distance bands: &lt;25m, 25-100m, &gt;100m, in flight at a distance.\nSee the accompanying BBS paper https://onlinelibrary.wiley.com/doi/10.1111/geb.13943 for more detailed methodology and discussion.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>BTO Willow Tit data</span>"
+    ]
+  },
+  {
+    "objectID": "btodata.html#results",
+    "href": "btodata.html#results",
+    "title": "7  BTO Willow Tit data",
+    "section": "7.2 Results",
+    "text": "7.2 Results\nBetween 1994-2023, there were 1479 Willow Tit observations across 614 unique sites (i.e. 1x1km grid squares). 327 of these sites were only surveyed once. This would presumably be due to the BBS methodology of randomly allocating grid squares.\nData were then grouped by the year and site. To avoid adding the counts of early and late visits, the highest count across both was used to get an estimated total of 2035 Willow Tit observations over the 30 years.\nHigh count totals for each year were then plotted to look at trends:\n\nIt appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.\nThe affect of the Covid pandemic on recording during 2020 can be seen, but numbers of Willow Tits show a steady decline. However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:\n \nThat is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BSS checklists contained Willow Tit observations, this is very likely.\nNext, I plotted the sites (by latitude and longitude) onto a map of the UK to see where observations occurred including numbers:\n\n\n\n\n\n\n\n\nBTO data\n\n\n\n\n\n\n\neBird data\n\n\n\n\n\n\nFigure 7.1",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>BTO Willow Tit data</span>"
+    ]
+  },
+  {
+    "objectID": "btodata.html#exploration-of-results",
+    "href": "btodata.html#exploration-of-results",
+    "title": "7  BTO Willow Tit data",
+    "section": "7.2 Exploration of results",
+    "text": "7.2 Exploration of results\nBetween 1994-2023, there were 1479 Willow Tit observations across 614 unique sites (i.e. 1x1km grid squares). 327 of these sites were only surveyed once. This would presumably be due to the BBS methodology of randomly allocating grid squares.\nThe sightings were then plotted on a map of the UK:\n\nData were then grouped by the year and site. To avoid adding the counts of early and late visits, the highest count across both was used to get an estimated total of 2035 Willow Tit observations over the 30 years.\nHigh count totals for each year were then plotted to look at trends:\n\nIt appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.\nThe affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow tits as shown by adding regression lines:\n\nHowever, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:\n \nThat is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BSS checklists contained Willow Tit observations, this is very likely.\nI ran both Spearman’s and Kendall’s correation tests to calculate the correlation coefficient for the data:\n\n\n\n\n\n\n\n\nTest\nResult\nDiscussion\n\n\n\n\nSpearman\n0.9111942\nIndicates a very strong positive monotonic relationship.\n\n\nKendall\n0.7600216\nIndicates a strong positive association between the two variables.\n\n\n\nI also ran a Kendall rank corrleation test to get significance and confidence intervals and got a p-value &lt; 2.2e-16 which shows a significantly significant correlation.\nAfter this, I stopped as I don’t fully understand the statistics and went back to visuals.\nI plotted the BBS Willow Tit sightings onto a map of the UK and set it beside the eBird map from the earlier chapter (after removing the checklists with no sightings):\n\n\n\n\n\n\n\n\nBTO data\n\n\n\n\n\n\n\neBird data\n\n\n\n\n\n\nFigure 7.1\n\n\n\nThe BBS data clearly cover a wider area (as well as a longer time period), but still show areas of similarity.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>BTO Willow Tit data</span>"
+    ]
+  },
+  {
+    "objectID": "btodata.html#willow-tits-in-the-north-west",
+    "href": "btodata.html#willow-tits-in-the-north-west",
+    "title": "7  BTO Willow Tit data",
+    "section": "7.3 Willow Tits in the North West",
+    "text": "7.3 Willow Tits in the North West\nMore than 15% of the UK’s Willow Tits are found in the North West. Over the past few years, the Lancashire Wildlife Trust has been running their Wet Willow Wildlife project aimed at improving habitats around Greater Manchester. The project is currently ongoing and the data are not publically available. I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results.\n \nThis was an interesting exercise.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>BTO Willow Tit data</span>"
+    ]
   }
 ]

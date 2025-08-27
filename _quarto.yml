@@ -12,6 +12,7 @@ book:
     - explore.qmd
     - enviro.qmd
     - encounter.qmd
+    - btodata.qmd
     - references.qmd
 
 bibliography: references.bib
