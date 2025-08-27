@@ -19,7 +19,7 @@ Data collected as part of the BBS follows a strict protocol. A 1x1km grid square
 
 See the accompanying BBS paper <https://onlinelibrary.wiley.com/doi/10.1111/geb.13943> for more detailed methodology and discussion.
 
-## Results
+## Exploration of results
 
 Between 1994-2023, there were 1479 Willow Tit observations across 614 unique sites (i.e. 1x1km grid squares). 327 of these sites were only surveyed once. This would presumably be due to the BBS methodology of randomly allocating grid squares.
 
@@ -31,16 +31,41 @@ High count totals for each year were then plotted to look at trends:
 
 It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.
 
-The affect of the Covid pandemic on recording during 2020 can be seen, but numbers of Willow Tits show a steady decline. However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:
+The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow tits as shown by adding regression lines:
+
+![](figures/WT_highcounts_regressionline.png)
+
+However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:
 
 ![](figures/BBS_Sites_per_year.png) ![](figures/BBSurveys_per_year.png)
 
 That is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BSS checklists contained Willow Tit observations, this is very likely.
 
-Next, I plotted the sites (by latitude and longitude) onto a map of the UK to see where observations occurred including numbers:
+I ran both Spearman's and Kendall's correation tests to calculate the correlation coefficient for the data:
+
+| Test | Result | Discussion |
+|------------------------|------------------------|------------------------|
+| Spearman | 0.9111942 | Indicates a very strong positive monotonic relationship. |
+| Kendall | 0.7600216 | Indicates a strong positive association between the two variables. |
+
+I also ran a Kendall rank corrleation test to get significance and confidence intervals and got a **p-value \< 2.2e-16** which shows a significantly significant correlation.
+
+After this, I stopped as I don't fully understand the statistics and went back to visuals.
+
+I plotted the BBS Willow Tit sightings onto a map of the UK and set it beside the eBird map from the earlier chapter (after removing the checklists with no sightings):
 
 ::: {#fig-Obsmaps layout-ncol="2"}
 ![BTO data](figures/BTO_BSS_WTcount2.png)
 
 ![eBird data](figures/eBird_WT_sightings2.png)
 :::
+
+The BBS data clearly cover a wider area (as well as a longer time period), but still show areas of similarity.
+
+## Willow Tits in the North West
+
+More than 15% of the UK's Willow Tits are found in the North West. Over the past few years, the Lancashire Wildlife Trust has been running their [Wet Willow Wildlife](https://www.lancswt.org.uk/wet-willow-wildlife) project aimed at improving habitats around Greater Manchester. The project is currently ongoing and the data are not publically available. I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results.
+
+![](figures/BTO_BSS_WTcountManchester.png) ![](figures/eBird_WTcounts_Manchester.png)
+
+This was an interesting exercise.
