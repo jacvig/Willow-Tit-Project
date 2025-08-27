@@ -48,7 +48,7 @@ That is, the more sites surveyed, the more likely a Willow Tit will be detected.
 I ran both Spearman's and Kendall's correation tests to calculate the correlation coefficient for the data:
 
 | Test | Result | Discussion |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Spearman | 0.9111942 | Indicates a very strong positive monotonic relationship. |
 | Kendall | 0.7600216 | Indicates a strong positive association between the two variables. |
 
