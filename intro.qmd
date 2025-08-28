@@ -80,6 +80,6 @@ Three key aspects make eBird checklist data useful for anaysis. The first is the
 
 ### BTO Breeding Bird Survey data
 
-As of December 3, 2024, the BTO released a publically available dataset from their Breeding Bird Survey [@british_trust_for_ornithology_2024_14161736]. This data cover a thirty-year period (1994-2023) and contain the data collected during the [Breeding Bird Survey (BBS)](https://www.bto.org/our-science/projects/breeding-bird-survey) of the United Kingdom. BBS data are collected twice a year during the breeding season (March - August) for all species that breed in the UK.
+As of December 3, 2024, the BTO released a publically available dataset from their Breeding Bird Survey [@british_trust_for_ornithology_2024_14161736]. This data cover a thirty-year period (1994-2023) and contain the data collected during the [Breeding Bird Survey (BBS)](https://www.bto.org/our-science/projects/breeding-bird-survey) of the United Kingdom. BBS data are collected twice a year during the breeding season for all species that breed in the UK.
 
 The release of these data is exciting as, until now, access has been limited thereby restricting analysis to only authorised individuals. It will be important to include these data in the overall project, not least as a benchmark corroborating the validity of eBird data even if collected through a different methodology. They have, therefore, been included as a separate section set alongside the original study.
