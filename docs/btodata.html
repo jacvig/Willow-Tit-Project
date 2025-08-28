@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -172,7 +206,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-quick-note-on-bbs-methodology" id="toc-a-quick-note-on-bbs-methodology" class="nav-link active" data-scroll-target="#a-quick-note-on-bbs-methodology"><span class="header-section-number">7.1</span> A quick note on BBS methodology</a></li>
   <li><a href="#exploration-of-results" id="toc-exploration-of-results" class="nav-link" data-scroll-target="#exploration-of-results"><span class="header-section-number">7.2</span> Exploration of results</a></li>
-  <li><a href="#willow-tits-in-the-north-west" id="toc-willow-tits-in-the-north-west" class="nav-link" data-scroll-target="#willow-tits-in-the-north-west"><span class="header-section-number">7.3</span> Willow Tits in the North West</a></li>
+  <li><a href="#comparing-bbs-and-ebird-data" id="toc-comparing-bbs-and-ebird-data" class="nav-link" data-scroll-target="#comparing-bbs-and-ebird-data"><span class="header-section-number">7.3</span> Comparing BBS and eBird data</a></li>
+  <li><a href="#willow-tits-in-the-north-west" id="toc-willow-tits-in-the-north-west" class="nav-link" data-scroll-target="#willow-tits-in-the-north-west"><span class="header-section-number">7.4</span> Willow Tits in the North West</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">7.5</span> Discussion</a></li>
   </ul>
 </nav>
     </div>
@@ -199,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>In December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (<a href="https://zenodo.org/records/14161736" class="uri">https://zenodo.org/records/14161736</a>) containing data collected between 1994 - 2023.</p>
-<p>As an addendum to this project, I analysed the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.</p>
+<p>As an addendum to this project, I explored the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.</p>
 <p>I chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.</p>
 <section id="a-quick-note-on-bbs-methodology" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="a-quick-note-on-bbs-methodology"><span class="header-section-number">7.1</span> A quick note on BBS methodology</h2>
@@ -215,22 +251,31 @@ ul.task-list li input[type="checkbox"] {
 <p>High count totals for each year were then plotted to look at trends:</p>
 <p><img src="figures/WT_Highcounts_per_year_bargraph.png" class="img-fluid"></p>
 <p>It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.</p>
-<p>The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow tits as shown by adding regression lines:</p>
+<p>The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow Tits as shown by adding regression lines:</p>
 <p><img src="figures/WT_highcounts_regressionline.png" class="img-fluid"></p>
 <p>However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:</p>
-<p><img src="figures/BBS_Sites_per_year.png" class="img-fluid"> <img src="figures/BBSurveys_per_year.png" class="img-fluid"></p>
-<p>That is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BSS checklists contained Willow Tit observations, this is very likely.</p>
-<p>I ran both Spearman’s and Kendall’s correation tests to calculate the correlation coefficient for the data:</p>
+<p><img src="figures/BBS_Sites_per_year.png" class="img-fluid"></p>
+<p>That is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BBS checklists contained Willow Tit observations, this is very likely.</p>
+</section>
+<section id="comparing-bbs-and-ebird-data" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="comparing-bbs-and-ebird-data"><span class="header-section-number">7.3</span> Comparing BBS and eBird data</h2>
+<p>The conclusion that the more sites visited and the more surveys taken will increase chances of observing Willow Tits is similar to the conclusion from the eBird data that the longer the visit, the more chance of observation.</p>
+<p>Therefore, I decided to run a few statistical analyses on both the datasets to understand the correlations.</p>
+<p>I chose to run Kendall’s correlation tests as the data do not follow a normal distributed using the R code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(data<span class="sc">$</span>total, data<span class="sc">$</span>recorders, <span class="at">method =</span> <span class="st">"kendall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As a test, I ran both Spearman’s and Kendall’s correlation tests on the BBS data to calculate the correlation coefficient for the data. Upon review, it seemed Kendall’s was more appropriate, so I ran it on the eBird data as well with the following results:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Test</th>
-<th>Result</th>
+<th>Result for BBS</th>
+<th>Results for eBird</th>
 <th>Discussion</th>
 </tr>
 </thead>
@@ -238,17 +283,41 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Spearman</td>
 <td>0.9111942</td>
+<td></td>
 <td>Indicates a very strong positive monotonic relationship.</td>
 </tr>
 <tr class="even">
 <td>Kendall</td>
 <td>0.7600216</td>
+<td>0.8863636</td>
 <td>Indicates a strong positive association between the two variables.</td>
 </tr>
 </tbody>
 </table>
-<p>I also ran a Kendall rank corrleation test to get significance and confidence intervals and got a <strong>p-value &lt; 2.2e-16</strong> which shows a significantly significant correlation.</p>
-<p>After this, I stopped as I don’t fully understand the statistics and went back to visuals.</p>
+<p>I also ran a Kendall rank correlation test for both datasets with the resulting p-values:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>p-value</th>
+<th>Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BBS</td>
+<td>&lt; 2.2e-16</td>
+<td>or 0.00000000000000022</td>
+</tr>
+<tr class="even">
+<td>eBird</td>
+<td>0.0004378</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For both, the p value is less than 0.05 so it indicates tis statistically significant</p>
+<p>After this, I stopped, as I don’t fully understand the statistics and went back to visuals.</p>
 <p>As a way to compare the datasets, I plotted the 2014-2023 BBS Willow Tit sightings onto a map of the UK and set it beside the eBird map from the earlier chapter (after removing the checklists with no sightings):</p>
 <div id="fig-Obsmaps" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -277,13 +346,18 @@ Figure&nbsp;7.1
 </figcaption>
 </figure>
 </div>
-<p>It is clear that the two datasets give a similar picture with populations of Willow Tits occurring in the north east, north west, midlands, and areas of Wales. More than anything, this may demonstrate the value of eBird as a data source.</p>
+<p>It is clear that the two datasets give a similar picture with populations of Willow Tits occurring in the north east, north west, the midlands, and areas of Wales. More than anything, this may demonstrate the value of eBird as a data source.</p>
 </section>
-<section id="willow-tits-in-the-north-west" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="willow-tits-in-the-north-west"><span class="header-section-number">7.3</span> Willow Tits in the North West</h2>
-<p>According the the Lancashire Wildlife Trust, more than 15% of the UK’s Willow Tits are found in the North West. Over the past few years, the Trust has been running their <a href="https://www.lancswt.org.uk/wet-willow-wildlife">Wet Willow Wildlife</a> project aimed at improving habitats across Greater Manchester and the surrounding areas. The project is currently ongoing and the data are not publically available. I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results. Note, I used all the BBS data available as there were fewer data points.</p>
+<section id="willow-tits-in-the-north-west" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="willow-tits-in-the-north-west"><span class="header-section-number">7.4</span> Willow Tits in the North West</h2>
+<p>According the the Lancashire Wildlife Trust, more than 15% of the UK’s Willow Tits are found in the North West. Over the past few years, the Trust has been running their <a href="https://www.lancswt.org.uk/wet-willow-wildlife">Wet Willow Wildlife</a> project aimed at improving habitats across Greater Manchester and the surrounding areas. The project is currently ongoing and the data are not publically available.</p>
+<p>I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results. Note, I used all years for the BBS data available as there were fewer data points for the area in total.</p>
 <p><img src="figures/BTO_BSS_WTcountManchester.png" class="img-fluid" alt="BTO data Greater Manchester"> <img src="figures/eBird_WTcounts_Manchester.png" class="img-fluid" alt="eBird data Greater Manchester"></p>
 <p>Again, this was an interesting exercise. The eBird data added to the picture already in place, but it also revealed that many of the observations occur on rivers and water features where habitat is idea for Willow Tits. The picture also shows that these waterways may function as corridors allowing Willow Tits to move and establish new territories.</p>
+</section>
+<section id="discussion" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="discussion"><span class="header-section-number">7.5</span> Discussion</h2>
+<p>I don’t intend to draw many conclusions from the results of the BBS data. My main goal was to practice mapping the data and setting it beside the eBird data. I did, however, have some thoughts, namely that the eBird data is as valuable a source of data as more official datasets i.e.&nbsp;those that have been well-established and guided by standard protocols. It’s necessary to take into considerations the biases that are inherent in eBird data, but it</p>
 
 
 </section>

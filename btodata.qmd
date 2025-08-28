@@ -9,7 +9,7 @@ editor_options:
 
 In December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (<https://zenodo.org/records/14161736>) containing data collected between 1994 - 2023.
 
-As an addendum to this project, I analysed the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
+As an addendum to this project, I explored the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
 
 I chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.
 
@@ -35,26 +35,53 @@ High count totals for each year were then plotted to look at trends:
 
 It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.
 
-The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow tits as shown by adding regression lines:
+The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow Tits as shown by adding regression lines:
 
 ![](figures/WT_highcounts_regressionline.png)
 
-However, a quick look at the number of sites surveyed and the number of surveys performed each year shows a possible correlation with this decline:
+However, this is not evidence of a population decline as such when compared to the number of sites surveyed each year:
 
-![](figures/BBS_Sites_per_year.png) ![](figures/BBSurveys_per_year.png)
+![](figures/BBS_Sites_per_year.png)
 
-That is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BSS checklists contained Willow Tit observations, this is very likely.
+There seems to be a correlation here, that is, the more sites surveyed, the more likely a Willow Tit will be detected. Considering only 0.02% of the total BBS checklists contained Willow Tit observations, this is very likely.
 
-I ran both Spearman's and Kendall's correation tests to calculate the correlation coefficient for the data:
+This conclusion felt a little similar to the conclusion from the eBird data that the longer the visit, the more chance of observation. I therefore, plotted the total number of sightings against the total number of sites per year for both BBS and eBird data, note I only used early visit totals for the BBS data:
 
-| Test | Result | Discussion |
-|----|----|----|
-| Spearman | 0.9111942 | Indicates a very strong positive monotonic relationship. |
-| Kendall | 0.7600216 | Indicates a strong positive association between the two variables. |
+![BBS data](figures/BBS_WT_trends.png) ![ebird data](figures/eBird_WT_trends.png)
 
-I also ran a Kendall rank corrleation test to get significance and confidence intervals and got a **p-value \< 2.2e-16** which shows a significantly significant correlation.
+As discussed earlier, eBird data is not showing an increase in Willow Tit populations, rather it is more likely that increased popularity and use of eBird has meant more ebirders are recording and more data are being entered. However, what is very clear, are the correlations between the number of observers, the number of sites surveyed, and the number of Willow Tits observed.
 
-After this, I stopped as I don't fully understand the statistics and went back to visuals.
+Based on this alone, it is not possible to say anything about the status of the population of the species.
+
+## Statistical analysis: BBS and eBird data
+
+I decided to run a few statistical analyses on both the BBS and eBird datasets to understand more fully the correlations between Willow Tit counts and number of sites surveyed.
+
+I chose to run the following R code for a Kendall's correlation test as the data do not follow a normal distribution:
+
+``` r
+cor(data$total, data$sites, method = "kendall")
+```
+
+### Results:
+
+| Data set | Kendall | Discussion |
+|------------------|------------------|-------------------|
+| BBS | 0.7600216 | Indicates a strong positive positive association between the two variables: count and sites |
+| eBird | 0.8863636 | Indicates a strong positive association between the two variables: count and sites |
+
+I also ran a Kendall rank correlation test for both datasets with the resulting p-values:
+
+| Dataset | p-value    | Discussion             |
+|---------|------------|------------------------|
+| BBS     | \< 2.2e-16 | or 0.00000000000000022 |
+| eBird   | \< 2.2e-16 |                        |
+
+For both, the p value is less than 0.05 so there is a statistically significant relationship for the number of sites surveyed and the number of Willow Tit records.
+
+And even though the BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. However, I did not run any further tests as I don't fully understand the statistics or their interpretations.
+
+### Plots
 
 As a way to compare the datasets, I plotted the 2014-2023 BBS Willow Tit sightings onto a map of the UK and set it beside the eBird map from the earlier chapter (after removing the checklists with no sightings):
 
@@ -64,12 +91,18 @@ As a way to compare the datasets, I plotted the 2014-2023 BBS Willow Tit sightin
 ![eBird data](figures/eBird_WT_sightings2.png)
 :::
 
-It is clear that the two datasets give a similar picture with populations of Willow Tits occurring in the north east, north west, midlands, and areas of Wales. More than anything, this may demonstrate the value of eBird as a data source.
+It is clear that the two datasets give a similar picture with populations of Willow Tits occurring in the North East, North West, the midlands, and areas of Wales. More than anything, this may demonstrate the value of eBird as a data source.
 
-## Willow Tits in the North West
+### Willow Tits in the North West
 
-According the the Lancashire Wildlife Trust, more than 15% of the UK's Willow Tits are found in the North West. Over the past few years, the Trust has been running their [Wet Willow Wildlife](https://www.lancswt.org.uk/wet-willow-wildlife) project aimed at improving habitats across Greater Manchester and the surrounding areas. The project is currently ongoing and the data are not publically available. I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results. Note, I used all the BBS data available as there were fewer data points.
+One point occured to me though. The results from the Willow Tit survey conducted between 2019-2021 @fig-UKcounties did not highlight Greater Manchester and the surrounding areas. But according the the Lancashire Wildlife Trust, more than 15% of the UK's Willow Tits are found in the North West. Over the past few years, the Trust has been running their [Wet Willow Wildlife](https://www.lancswt.org.uk/wet-willow-wildlife) project aimed at improving habitats across Greater Manchester and the surrounding areas. The project is currently ongoing and the data are not publically available.
+
+I thought it would be interesting to plot both the BTO and eBird data on the area surrounding Manchester to see the results. Note, I used all years for the BBS data available as there were fewer data points for the area in total.
 
 ![BTO data Greater Manchester](figures/BTO_BSS_WTcountManchester.png) ![eBird data Greater Manchester](figures/eBird_WTcounts_Manchester.png)
 
-Again, this was an interesting exercise. The eBird data added to the picture already in place, but it also revealed that many of the observations occur on rivers and water features where habitat is idea for Willow Tits. The picture also shows that these waterways may function as corridors allowing Willow Tits to move and establish new territories.
+Again, this was an interesting exercise. Not only do both these datasets show that areas around Greater Manchester do have records of Willow Tits, the eBird data added to the BBS picture. The eBird data also revealed more clearly that many of the observations occur on rivers and water features where habitat is idea for Willow Tits. It even indicates that these waterways may function as corridors allowing Willow Tits to move and establish new territories.
+
+## Discussion
+
+I don't intend to draw many further conclusions from the results of the BBS data. My main goal was to practice mapping the data and setting it beside the eBird data to see how comparable they were and how they could complement one another. I did, however, have some thoughts about the data themselves. Namely that eBird data is as valuable a source of data as more "official" datasets i.e. those that have been well-established and guided by standard protocols. It's necessary to take into considerations the biases that are inherent in eBird data, but it is equally important not to ignore them.
