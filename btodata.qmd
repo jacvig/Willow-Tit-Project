@@ -33,7 +33,7 @@ High count totals for each year were then plotted to look at trends:
 
 ![](figures/WT_Highcounts_per_year_bargraph.png)
 
-It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May. I am not sure what this indicates.
+It appears that Willow Tit observations were historically more likely later in the breeding season between mid May and June, with more recent years having higher rates of observations earlier between April and mid May.
 
 The affect of the Covid pandemic on recording during 2020 can be seen, but overall, there is a decrease in numbers of Willow Tits as shown by adding regression lines:
 
@@ -55,7 +55,7 @@ Based on this alone, it is not possible to say anything about the status of the 
 
 ## Statistical analysis: BBS and eBird data
 
-I decided to run a few statistical analyses on both the BBS and eBird datasets to understand more fully the correlations between Willow Tit counts and number of sites surveyed.
+I decided to run a correlation analysis on both the BBS and eBird datasets to understand more fully the relationship between variables: Willow Tit counts and number of sites surveyed.
 
 I chose to run the following R code for a Kendall's correlation test as the data do not follow a normal distribution:
 
@@ -66,7 +66,7 @@ cor(data$total, data$sites, method = "kendall")
 ### Results:
 
 | Data set | Kendall | Discussion |
-|------------------|------------------|-------------------|
+|----|----|----|
 | BBS | 0.7600216 | Indicates a strong positive positive association between the two variables: count and sites |
 | eBird | 0.8863636 | Indicates a strong positive association between the two variables: count and sites |
 
@@ -79,7 +79,7 @@ I also ran a Kendall rank correlation test for both datasets with the resulting 
 
 For both, the p value is less than 0.05 so there is a statistically significant relationship for the number of sites surveyed and the number of Willow Tit records.
 
-And even though the BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. However, I did not run any further tests as I don't fully understand the statistics or their interpretations.
+The BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. However, I did not run any further tests as I don't fully understand the statistics or their interpretations.
 
 ### Plots
 
