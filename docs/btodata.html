@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>In December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (<a href="https://zenodo.org/records/14161736" class="uri">https://zenodo.org/records/14161736</a>) containing data collected between 1994 - 2023.</p>
-<p>As an addendum to this project, I explored the BBS Willow Tit data. The code for processing the BTO BBS data be found in the file <a href="https://github.com/jacvig/WillowTit2024/blob/master/BBSWillowTit.R">BBSWillowTit.R</a>.</p>
+<p>As an addendum to this project, I explored the BBS Willow Tit data. The code for processing and visualising the BTO BBS data be found in the file <a href="https://github.com/jacvig/WillowTit2024/blob/master/BBSWillowTit.R">BBSWillowTit.R</a>.</p>
 <p>It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.</p>
 <p>I chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.</p>
 <section id="a-quick-note-on-bbs-methodology" class="level2" data-number="7.1">
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>For both, the p value is less than 0.05 so there is a statistically significant relationship for the number of sites surveyed and the number of Willow Tit records.</p>
-<p>The BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. However, I did not run any further tests as I don’t fully understand the statistics or their interpretations.</p>
+<p>The BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. I tried to follow the BBS methodology for modeling populations to produce the R code available in <a href="https://github.com/jacvig/WillowTit2024/blob/master/BBSTrendProduction.R">BBSTrendProduction.R</a>, but I do not have the statistical training to verify or interpret the results.</p>
 </section>
 <section id="plots" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="plots"><span class="header-section-number">7.3.2</span> Plots</h3>

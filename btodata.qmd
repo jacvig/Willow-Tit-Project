@@ -9,7 +9,7 @@ editor_options:
 
 In December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (<https://zenodo.org/records/14161736>) containing data collected between 1994 - 2023.
 
-As an addendum to this project, I explored the BBS Willow Tit data. The code for processing the BTO BBS data be found in the file [BBSWillowTit.R](https://github.com/jacvig/WillowTit2024/blob/master/BBSWillowTit.R).
+As an addendum to this project, I explored the BBS Willow Tit data. The code for processing and visualising the BTO BBS data be found in the file [BBSWillowTit.R](https://github.com/jacvig/WillowTit2024/blob/master/BBSWillowTit.R).
 
 It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
 
@@ -81,7 +81,7 @@ I also ran a Kendall rank correlation test for both datasets with the resulting 
 
 For both, the p value is less than 0.05 so there is a statistically significant relationship for the number of sites surveyed and the number of Willow Tit records.
 
-The BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. However, I did not run any further tests as I don't fully understand the statistics or their interpretations.
+The BBS and eBird data show opposite trends, this means there is a bias in the data which requires further statistical analysis. I tried to follow the BBS methodology for modeling populations to produce the R code available in [BBSTrendProduction.R](https://github.com/jacvig/WillowTit2024/blob/master/BBSTrendProduction.R), but I do not have the statistical training to verify or interpret the results.
 
 ### Plots
 
