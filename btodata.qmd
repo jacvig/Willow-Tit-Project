@@ -9,7 +9,9 @@ editor_options:
 
 In December 2024, the British Trust for Ornithology (BTO) released their Breeding Bird Survey (BBS) dataset (<https://zenodo.org/records/14161736>) containing data collected between 1994 - 2023.
 
-As an addendum to this project, I explored the BBS Willow Tit data. It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
+As an addendum to this project, I explored the BBS Willow Tit data. The code for processing the BTO BBS data be found in the file [BBSWillowTit.R](https://github.com/jacvig/WillowTit2024/blob/master/BBSWillowTit.R).
+
+It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
 
 I chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.
 
@@ -66,7 +68,7 @@ cor(data$total, data$sites, method = "kendall")
 ### Results:
 
 | Data set | Kendall | Discussion |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | BBS | 0.7600216 | Indicates a strong positive positive association between the two variables: count and sites |
 | eBird | 0.8863636 | Indicates a strong positive association between the two variables: count and sites |
 
