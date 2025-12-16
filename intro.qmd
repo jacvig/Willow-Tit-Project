@@ -8,9 +8,9 @@ editor_options:
 
 ## Background
 
-Willow Tits are in a singular position of holding the dual-status as being the most recently "discovered" resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 [@Cocker2005]. However, it is also the fastest declining resident bird in the UK [@Burns2020] its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [@Lewis2009]. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.
+Willow Tits are in a singular position. They hold the dual-status as being the most recently "discovered" resident bird species in the UK, but also the one most rapidly declining. The species was only recognised in 1897, when it was finally distinguished from the Marsh Tit, and subsequently added to the British List of resident birds in 1900 [@Cocker2005]. However, it is also the fastest declining resident bird in the UK [@Burns2020] its population falling by 86% between 1995-2020 with a greater decline estimated between 88-94% since the 1970s [@Lewis2009]. Since 2002, the Willow Tit has been on the Red List as the highest level of conservation concern.
 
-Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tit and aid in their conservation. It is my hope that this project can be a part of this wider effort.
+Many efforts have been undertaken by charities and volunteers to increase the knowledge and understanding of Willow Tits and aid in their conservation. It is my hope that this project can be a part of this wider effort.
 
 ### Current status and research
 
@@ -48,7 +48,7 @@ The dataset for this project was taken from [eBird](ebird.org), a citizen-scienc
 
 Much has already been written on the robust nature of eBird data for ecological analysis [Strimas-Mackey2020](https://ebird.github.io/ebird-best-practices/), but the single most important aspect of using eBird data for this project is that it is freely available.
 
-Previous research, including the national survey, also used citizen-science data collected by volunteers and submitted through recording systems such as [Birdtrack](https://www.bto.org/our-science/projects/birdtrack). However, these data are held by the [BTO](bto.org) and are not publically available. Therefore, opportunities to make use of this data are limited. Since eBird is a freely available dataset, this makes it a unique and vaulable source of data on Willow Tits.
+Previous research, including the national survey, also used citizen-science data collected by volunteers and submitted through recording systems such as [Birdtrack](https://www.bto.org/our-science/projects/birdtrack). These raw data are held by the [BTO](bto.org) and must be [requested](https://www.bto.org/data). Although this is not a preventative barrier, it is nontheless restrictive. Since the eBird dataset is freely available, anyone can access it and contribute to the research.
 
 ### A note on eBird data
 
@@ -80,6 +80,6 @@ Three key aspects make eBird checklist data useful for anaysis. The first is the
 
 ### BTO Breeding Bird Survey data
 
-As of December 3, 2024, the BTO released a publically available dataset from their Breeding Bird Survey [@british_trust_for_ornithology_2024_14161736]. This data cover a thirty-year period (1994-2023) and contain the data collected during the [Breeding Bird Survey (BBS)](https://www.bto.org/our-science/projects/breeding-bird-survey) of the United Kingdom. BBS data are collected twice a year during the breeding season for all species that breed in the UK.
+As of December 3, 2024, the BTO released a publicly available dataset from their Breeding Bird Survey [@british_trust_for_ornithology_2024_14161736]. This data cover a thirty-year period (1994-2023) and contain the data collected during the [Breeding Bird Survey (BBS)](https://www.bto.org/our-science/projects/breeding-bird-survey) of the United Kingdom. BBS data are collected twice a year during the breeding season for all species that breed in the UK.
 
 The release of these data is exciting as, until now, access has been limited thereby restricting analysis to only authorised individuals. It will be important to include these data in the overall project, not least as a benchmark corroborating the validity of eBird data even if collected through a different methodology. They have, therefore, been included as a separate section set alongside the original study.
