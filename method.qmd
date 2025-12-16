@@ -7,7 +7,7 @@ bibliography: references.bib
 
 # Methodology
 
-The eBird data used for this project cover a ten-year period (2014-2024) during the pre-breeding season (February - April) when Willow Tits are establishing territories.
+The eBird data used for this project cover a ten-year period (2014-2023) during the pre-breeding season (February - April) when Willow Tits are establishing territories.
 
 Originally, data covered the period 2015-2024. However, an unknown issue with the 2024 data prevented accurate mapping. Therefore, it was removed and 2014 was included to ensure a 10-year period was covered. The same filtering and processing was done for these data.
 
@@ -15,7 +15,7 @@ The full R code used to download, filter, and process the dataset is available i
 
 ## Downloading the data
 
-Data were downloaded on 16 July, 2024 from [eBird](ebird.org) via the [Data Access page](https://ebird.org/data/download). A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2015 - 2024. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see [A note on eBird data](pages/intro.qmd)).
+Data were downloaded on 16 July, 2024 from [eBird](ebird.org) via the [Data Access page](https://ebird.org/data/download). A custom download was performed to get a subset of the dataset by specifying the species (Willow Tit - Poecile montanus) for the United Kingdom between 2014 - 2023. Sampling event data were included in order to get both the observation (EBD) and checklist (SED) data (see [A note on eBird data](pages/intro.qmd)).
 
 ::: {#fig-download layout-ncol="1"}
 ![eBird data custom download](figures/ebirdDownload.png){width="75%"}

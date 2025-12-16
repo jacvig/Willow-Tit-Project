@@ -113,7 +113,7 @@ Looking at frequency of detection, it appears that Willow Tit observations begin
 
 However, it is important to note that the highest detection frequency is still only around 0.6% or 0.7%. Considering the dataset is of an optimal sample size i.e. the number of checklists is high at 269,775, this low detection seems likely and aligns with the declining status of Willow Tits.
 
-It may also be concluded that the time of day does not play a significant role in Willow Tit detection. Therefore, restricting checklists to the period when Willow Tits are most vocal, and therefor more likely to be detected (February - April), will be more useful in further predictions than the hour of the day.
+It may also be concluded that the time of day does not play a significant role in Willow Tit detection. Therefore, restricting checklists to the period when Willow Tits are most vocal, and therefore more likely to be detected (February - April), will be more useful in further predictions than the hour of the day.
 
 ### Checklist duration
 
