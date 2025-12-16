@@ -11,9 +11,9 @@ As stated previously, I am still getting to grips with the theory and applicatio
 
 The encounter rate will measure the probability of an observer detecting a species during a standard birding session. In this case, it will be an eBird checklist. Ultimately, it is occupancy (the probability a species occurs at a site) that is most useful, but this is hard to measure with citizen-science data due to the variation in detectability. To address this, it can be useful to include effort covariates in the model so that the encounter rate is proportional to occupancy. Since Willow Tits in the UK are harder to detect, the encounter rate will be substantially lower than the occupancy rate.
 
-The model developed by @StrimasMackey addresses class imbalance and spacial bias through spatial subsampling. A balanced random forest model is then trained and calibrated before using it to predict encounter rates across the study area and mapping these. The calibration model is trained by predicting the encounter rate for each checklist in the training set, then fitting a binomial Generalized Additive Model (GAM) with the real observed encounter rate as the response and the predicted encounter rate as the predictor variable. The full R code is available in the file *EncounterRate.R* on [GitHub](https://github.com/jacvig/WillowTit2024).
+The model developed by @StrimasMackey et.al. addresses class imbalance and spacial bias through spatial subsampling. A balanced random forest model is then trained and calibrated before using it to predict encounter rates across the study area and mapping these. The calibration model is trained by predicting the encounter rate for each checklist in the training set, then fitting a binomial Generalized Additive Model (GAM) with the real observed encounter rate as the response and the predicted encounter rate as the predictor variable. The R code is available in the file [EncounterRate.R](https://github.com/jacvig/WillowTit2024/blob/master/EncounterRate.R).
 
-Before the random forest model was calibrated and run, the data were subsamplled to address spatial bias, temporal bias, and class imbalance (see Ch 3 Methodology). A grid of 3 km by 3 km square was made across the study region, then detections and non-detections were subsampled independently from the grid to ensure not too many detections were lost. To address temporal bias, one detection and one non-detection checklist were sampled from each grid cell for each week of each year.
+Before the random forest model was calibrated and run, the data were sub-sampled to address spatial bias, temporal bias, and class imbalance (see [Ch 3 Methodology](https://jacvig.github.io/Willow-Tit-Project/method.html)). A grid of 3 km by 3 km square was made across the study region, then detections and non-detections were sub-sampled independently from the grid to ensure not too many detections were lost. To address temporal bias, one detection and one non-detection checklist were sampled from each grid cell for each week of each year.
 
 ## Assessment of model
 
@@ -63,14 +63,14 @@ The top six variables that affect Willow Tit detections are:
 
 1.  Effort in hours
 2.  Mean elevation
-3.  Edge density savanna type
+3.  Edge density savanna type (i.e. tree cover 10-30%, canopy \>2m)
 4.  Elevation standard deviation
 5.  Landcover savanna type
-6.  Edge density urban type
+6.  Edge density urban type (i.e. at least 30% impervious surface area)
 
-These results are interesting and seems to fit with what is known about Willow Tits. The top variable is an effort variable, which is to be expected since Willow Tits are harder to detect than more common species, so the more time spent, the more likely one would observe a Willow Tit.
+These results are interesting and seems to fit with what is known about Willow Tits. The top variable is an effort variable, which is to be expected since Willow Tits are harder to detect than more common species. So the more time spent, the more likely one would observe a Willow Tit.
 
-Effort is then followed by environmental variables which, perhaps, support the research that habitat is a vital factor for Willow Tits, that is, they require more specialised habitat than other common species. The model shows that elevation plays a role followed by 10-30% tree cover, both as part of a landscape's edge and area. These fit well with what is known: that Willow Tits tend to be observed along edges such as scrub lines, and in areas of forest where there are lower canopies dominated by pioneer species (such as Birch) which tend to be smaller or less dense.
+Effort is then followed by environmental variables which, perhaps, support the research that habitat is a vital factor for Willow Tits. That is, they require more specialised habitat than other common species. The model shows that elevation plays a role followed by 10-30% tree cover, both as part of a landscape's edge and area. These fit well with what is known: that Willow Tits tend to be observed along edges such as scrub lines, and in areas of forest where there are lower canopies dominated by pioneer species (such as birch) which tend to be smaller or less dense.
 
 ### Partial dependence
 
@@ -88,7 +88,7 @@ The peak time of day was found alongside partial dependence:
 
 ![Time of day with highest detectability probability](figures/StandardisedEffortVariables.png)
 
-The first graph is the same as one created earlier in Chapter 2 and shows that the greatest number of checklists occur between 8:00-10:00. The second graph shows the encounter rate across the day. The first and last values were trimmed to maximise the encounter rate and avoid extrapolation. Based on this calculation, the peak time of day for detecting Willow Tits is 6.866 i.e. 6:51.
+The first graph is the same as one created earlier in [Chapter 4 Exploratory Analysis](https://jacvig.github.io/Willow-Tit-Project/explore.html), and shows that the greatest number of checklists occur between 8:00-10:00. The second graph shows the encounter rate across the day. The first and last values were trimmed to maximise the encounter rate and avoid extrapolation. Based on this calculation, the peak time of day for detecting Willow Tits is 6.866 i.e. 06:51.
 
 This time was then added to the effort variables (2km, 2 hours) to make predictions for the middle of the focal window of the latest year: 16 March 2023.
 
@@ -96,7 +96,7 @@ Range estimates were then made across the entire study area and mapped:
 
 ![Predicted range of Willow Tit for March 2023 if performing a 2km checklist at 2 hours.](figures/predictiontest1.png)
 
-This map shows the expected range where Willow Tits would be encountered in March if birding across a 2km area for 2 hours. From the maps in Chapter 2, this shows a slightly reduced area, albeit consistent with our understanding of the current range of Willow Tits.
+This map shows the expected range where Willow Tits would be encountered in March if birding across a 2km area for 2 hours. From the maps in Chapter 4, this shows a reduced area, albeit consistent with our understanding of the current range of Willow Tits.
 
 The predicted encounter rate was then mapped for the entire study area:
 
@@ -106,4 +106,4 @@ This map shows more detail about predicted encounter rate (probability of an obs
 
 ## Discussion
 
-Considering the range is very similar to the current known picture, it perhaps tells us that there is already a good understanding of where Willow Tits occur. More importantly, it suggests areas that Willow Tits are currently not recorded, but could be prioritised for conservation efforts, specifically areas of Somerset, Devon, and Cornwall, as well as more areas of Scotland.
+Considering the range is very similar to the current known picture, it perhaps tells us that there is already a good understanding of where Willow Tits occur. More importantly, it suggests areas that Willow Tits are currently not recorded, but could be prioritised for conservation efforts, specifically areas of Wales, Somerset, Devon, and Cornwall, as well as more areas of Scotland and Northern Ireland.

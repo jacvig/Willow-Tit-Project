@@ -11,7 +11,7 @@ This project wanted to look at associations between Willow Tit occurrence and en
 
 However, it is worth noting that my knowledge of, and experience with, species distribution models is very limited. Therefore, I have relied heavily on @StrimasMackey for guidance and recommendations in applying these methods to the data. As well, the following sections have been undertaken more as a means of teaching myself species distribution modeling using a case study, and so the results may not reflect a robust methodology for Willow Tit data analysis.
 
-First, MODIS files were downloaded and processed into a raster file (see [Processing_MODIS_files.R](https://github.com/jacvig/WillowTit2024/blob/master/Processing_MODIS_files.R) on ), then the variables were matched to the checklist locations and a prediction grid was created (see [EnvironmentalVariables.R](https://github.com/jacvig/WillowTit2024/blob/master/EnvironmentalVariables.R)*)*.
+First, MODIS files were downloaded and processed into a raster file (see [Processing_MODIS_files.R](https://github.com/jacvig/WillowTit2024/blob/master/Processing_MODIS_files.R)), then the variables were matched to the checklist locations and a prediction grid was created (see [EnvironmentalVariables.R](https://github.com/jacvig/WillowTit2024/blob/master/EnvironmentalVariables.R)*)*.
 
 ## Landcover
 
@@ -35,9 +35,9 @@ The landcover and elevation variables were joined to the checklist data.
 
 A grid of habitat variables was created from which to make predictions.
 
-The prediction grid was saved as a .csv file, but the raster (or .tiff) file can be used to map the variables. This was useful as a way to understand the classification scheme and how it relates to to UK habitats.
+The prediction grid was saved as a .csv file, but the raster (or .tiff) file can be used to map the variables. This is useful as a way to understand the classification scheme and how it relates to UK habitats.
 
-For example, the variable "savanna" defined as "tree cover 30-60% (canopy \>2m), was more relatable when mapped:
+For example, the variable "savanna" defined as "tree cover 30-60% (canopy \>2m), was more relateable when mapped:
 
 ![](figures/env_variable_savanna.png)
 

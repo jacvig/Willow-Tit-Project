@@ -13,7 +13,7 @@ As an addendum to this project, I explored the BBS Willow Tit data. The code for
 
 It is important to note that BBS collection methodology, as well as the data collected, are very different from eBird. BBS use a standard protocol which attempts to reduce biases as well as quality check data at the point of collection. Therefore, the data preparation and analysis with R cannot be fully comparable to those from the eBird analysis.
 
-I chose to explore all 30 years of the available data and to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a study covering a longer period of time is not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.
+I chose to explore all 30 years of the available data to see what insights I could glean about Willow Tits. One reason for this is that eBird is a relatively new dataset, having been launched in 2002. Although users are adding their historical checklists, these data are not always complete or can be included, meaning a longitudinal study not always possible. This is why it can be useful to see both these datasets as part of the bigger picture.
 
 ## A quick note on BBS methodology
 
